@@ -21,42 +21,41 @@ router.get('/test', (req, res) => {
 	res.send(`
 		${top('test')}
 		${bottom}
+
 		<script type="text/javascript">
 			window.addEventListener('load', () => {
 				Swal.fire({
-				  title: 'Submit your Github username',
-				  input: 'text',
-				  inputAttributes: {
-				    autocapitalize: 'off'
-				  },
-				  showCancelButton: true,
-				  confirmButtonText: 'Look up',
-				  showLoaderOnConfirm: true,
-				  preConfirm: (login) => {
-				    return fetch(`//api.github.com/users/${login}`)
-				      .then(response => {
-				        if (!response.ok) {
-				          throw new Error(response.statusText)
-				        }
-				        return response.json()
-				      })
-				      .catch(error => {
-				        Swal.showValidationMessage(
-				          `Request failed: ${error}`
-				        )
-				      })
-				  },
-				  allowOutsideClick: () => !Swal.isLoading()
-				}).then((result) => {
-				  if (result.isConfirmed) {
-				    Swal.fire({
-				      title: `${result.value.login}'s avatar`,
-				      imageUrl: result.value.avatar_url
-				    })
-				  }
+					title: 'Please Enter Username',
+					input: 'text',
+					confirmButtonText: 'Look Up',
+					showCancelButton: true,
+					showLoadingOnConfirm: true,
+					preConfirm: (username) => {
+						if(username == 'enyeahgo') {
+							return { status: 'success', message: 'Welcome Back!' }
+						} else {
+							return { status: 'error', message: 'You are not allowed! Contact server administrator.' }
+						}
+					},
+					allowOutsideClick: () => !Swal.isLoading()
+				}).then(result => {
+					if(result.isConfirmed) {
+						if(result.data.status == 'success') {
+							Swal.fire({
+								title: result.data.message,
+								icon: 'success'
+							});
+						} else {
+							Swal.fire({
+								title: result.data.message,
+								icon: 'error'
+							});
+						}
+					}
 				});
 			});
 		</script>
+
 		${closing}
 	`);
 });
