@@ -1,0 +1,13 @@
+<input type="hidden" id="top" value="<%= top%>" />
+<input type="hidden" id="bottom" value="<%= bottom%>" />
+<input type="hidden" id="closing" value="<%= closing%>" />
+<div id="body"></div>
+
+<script type="text/javascript">
+	const top_ = document.getElementById('top').value;
+	const bottom = document.getElementById('bottom').value;
+	const closing = document.getElementById('closing').value;
+	window.addEventListener('load', () => {
+		document.getElementById('body').innerHTML = `${top_}${bottom}${closing}`;
+	});
+</script>

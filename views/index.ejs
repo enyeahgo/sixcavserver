@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<input type="hidden" id="top" value="<%= top%>" />
+<input type="hidden" id="content" value="<%= content%>" />
+<input type="hidden" id="bottom" value="<%= bottom%>" />
+<input type="hidden" id="closing" value="<%= closing%>" />
+<div id="body"></div>
+
+<script type="text/javascript">
+	const top_ = document.getElementById('top').value;
+	const content = document.getElementById('content').value;
+	const bottom = document.getElementById('bottom').value;
+	const closing = document.getElementById('closing').value;
+	window.addEventListener('load', () => {
+		document.getElementById('body').innerHTML = `${top_}${content}${bottom}${closing}`;
+	});
+</script>
