@@ -1,4 +1,9 @@
 .textInput {
-	border-size: 5px;
+	border-width: 3px;
 	border-color: black;
+}
+
+.bold {
+	font-weight: bold;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
