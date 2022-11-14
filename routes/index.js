@@ -10,15 +10,7 @@ var swals = require('../helpers/swals');
 var closing = require('../helpers/closing');
 
 // Form Elements
-var textInput = require('../helpers/formelements/textInput');
-var select = require('../helpers/formelements/select');
-var datePicker = require('../helpers/formelements/datePicker');
-var amountInput = require('../helpers/formelements/amountInput');
-var submitBtn = require('../helpers/formelements/submitBtn');
-var hidden = require('../helpers/formelements/hidden');
-var pwdInput = require('../helpers/formelements/pwdInput');
-var file = require('../helpers/formelements/file');
-var validate = require('../helpers/formelements/validate');
+var textInput = require('../helpers/formelements/textInput'), select = require('../helpers/formelements/select'), datePicker = require('../helpers/formelements/datePicker'), amountInput = require('../helpers/formelements/amountInput'), submitBtn = require('../helpers/formelements/submitBtn'), hidden = require('../helpers/formelements/hidden'), pwdInput = require('../helpers/formelements/pwdInput');file = require('../helpers/formelements/file'),validate = require('../helpers/formelements/validate');
 
 router.get('/', (req, res) => {
 	res.send(`
@@ -31,8 +23,12 @@ router.get('/', (req, res) => {
 		<script type="text/javascript">
 			const socket = io();
 			function sendChat() {
-				socket.emit('chat', document.getElementById('chat').value);
-				toast('Chat sent!', 'success');
+			  if(document.getElementById('chat').value == '') {
+			    toast('Chat must not be empty!', 'error');
+			  } else {
+				  socket.emit('chat', document.getElementById('chat').value);
+				  toast('Chat sent!', 'success');
+			  }
 			}
 			socket.on('broadcast', msg => {
 				console.log(msg);
@@ -92,7 +88,9 @@ router.get('/newactivity_/:id', (req, res) => {
 		</div>
 		${bottom}
 		<script type="text/javascript">
+			const socket = io();
 			window.addEventListener('load', () => {
+				socket.emit('dbchanged', '${req.params.id}');
 				Swal.fire('Success', 'Activity successfully recorded! Thank you.', 'success');
 			});
 		</script>
@@ -139,6 +137,85 @@ router.get('/getactivities/:id', (req, res) => {
 		${bottom}
 		${closing}
 	`);
+});
+
+router.get('/records/:staff', (req, res) => {
+	res.send(`
+		${top('pagination')}
+		<div class="card shadow-sm mb-3">
+			<div class="card-header bg-success text-light">Pagination</div>
+			<div class="card-body" id="data-container"></div>
+		</div>
+		<div id="pagination-container" class="d-flex justify-content-center"></div>
+		${bottom}
+		<script type="text/javascript">
+			const socket = io();
+			var pc = $('#pagination-container');
+
+			window.addEventListener('load', () => {
+				localStorage.setItem('currentPage', 1);
+				updateData(true);
+			});
+
+			socket.on('dbchanged', staff => {
+				console.log(staff);
+				if(staff == '${req.params.staff}') {
+					updateData(false);
+				}
+			});
+
+			function updateData() {
+				pc.pagination({
+					className: 'paginationjs-theme-blue',
+					dataSource: function(done) {
+						$.ajax({
+							type: 'GET', url: '/storage/serverstorage.json',
+							success: response => {
+								console.log(response['${req.params.staff}']['storage']['activities']);
+								done(Object.values(response['${req.params.staff}']['storage']['activities']));
+							}
+						});
+					},
+					pageSize: 3,
+					pageNumber: localStorage.getItem('currentPage'),
+					callback: (data, pagination) => {
+						var html = template(data);
+						$('#data-container').html(html);
+					}
+				});
+				pc.addHook('afterPreviousOnClick', function() {
+					console.log('page btn clicked! '+pc.pagination('getSelectedPageNum'));
+					localStorage.setItem('currentPage', parseInt(pc.pagination('getSelectedPageNum')));
+				});
+				pc.addHook('afterPageOnClick', function() {
+					console.log('page btn clicked! '+pc.pagination('getSelectedPageNum'));
+					localStorage.setItem('currentPage', parseInt(pc.pagination('getSelectedPageNum')));
+				});
+				pc.addHook('afterNextOnClick', function() {
+					console.log('page btn clicked! '+pc.pagination('getSelectedPageNum'));
+					localStorage.setItem('currentPage', parseInt(pc.pagination('getSelectedPageNum')));
+				});
+			}
+
+			function template(data) {
+				var html = '<ul class="list-group list-group-flush">';
+				data.forEach(d => {
+					html += '<li class="list-group-item d-flex justify-content-between align-items-center">' + d.activity + '<span>' + d.amount + '</span></li>'
+				});
+				html += '</ul>';
+				return html;
+			}
+		</script>
+		${closing}
+	`);
+});
+
+router.get('/n', (req, res) => {
+	let result = '';
+	for(let i = 1; i < 100; i++) {
+		result += `${i}, `
+	}
+	res.send(result);
 });
 
 // FUNCTIONS

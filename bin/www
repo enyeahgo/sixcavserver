@@ -30,6 +30,10 @@ io.on('connection', socket => {
     io.emit('broadcast', data);
     console.log(data);
   });
+  socket.on('dbchanged', data => {
+    io.emit('dbchanged', data);
+    console.log(data);
+  });
 });
 
 /**
