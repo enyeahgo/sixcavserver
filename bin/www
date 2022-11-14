@@ -20,6 +20,17 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var io = require('socket.io')(server);
+io.on('connection', socket => {
+  console.log('user connected');
+  socket.on('join', msg => {
+    console.log(msg);
+  });
+  socket.on('chat', data => {
+    io.emit('broadcast', data);
+    console.log(data);
+  });
+});
 
 /**
  * Listen on provided port, on all network interfaces.
