@@ -10,7 +10,7 @@ var swals = require('../helpers/swals');
 var closing = require('../helpers/closing');
 
 // Form Elements
-var textInput = require('../helpers/formelements/textInput'), select = require('../helpers/formelements/select'), datePicker = require('../helpers/formelements/datePicker'), amountInput = require('../helpers/formelements/amountInput'), submitBtn = require('../helpers/formelements/submitBtn'), hidden = require('../helpers/formelements/hidden'), pwdInput = require('../helpers/formelements/pwdInput');file = require('../helpers/formelements/file'),validateAndSend = require('../helpers/formelements/validateAndSend');
+var textInput = require('../helpers/formelements/textInput'), select = require('../helpers/formelements/select'), datePicker = require('../helpers/formelements/datePicker'), amountInput = require('../helpers/formelements/amountInput'), submitBtn = require('../helpers/formelements/submitBtn'), hidden = require('../helpers/formelements/hidden'), pwdInput = require('../helpers/formelements/pwdInput');file = require('../helpers/formelements/file'), validateAndSend = require('../helpers/formelements/validateAndSend'), validateAndEdit = require('../helpers/formelements/validateAndEdit');
 
 router.get('/', (req, res) => {
 	res.send(`
@@ -141,9 +141,39 @@ router.get('/records/:staff', (req, res) => {
 	`);
 });
 
+router.get('/edit/:staff/:id', (req, res) => {
+	let data = db.get(req.params.staff).storage.activities[req.params.id].data;
+	console.log(data);
+	res.send(`
+		${top(req.params.staff)}
+		<div class="card shadow-sm">
+			<div class="card-header bg-success text-light">Add New Record</div>
+			<div class="card-body">
+				${hidden('staff', req.params.staff)}
+				${hidden('type', 'activities')}
+				${hidden('id', req.params.id)}
+				${textInput('activity', data.activity, 'The activity name.')}
+				${datePicker('finishDate', data.finishDate, 'Finish Date', 'The date that the activity finished.')}
+				${select('quarter', data.quarter, 'Choose what quarter is this activity', {
+					first: 'First Quarter', second: 'Second Quarter', third: 'Third Quarter', fourth: 'Fourth Quarter'
+				})}
+				${amountInput('amount', data.amount, 'The amount of the activity.')}
+				${submitBtn('saveBtn', 'Submit Edit')}
+			</div>
+		</div>
+		${bottom}
+		${validateAndEdit('/editactivity', 'saveBtn', ['staff', 'type', 'id', 'activity', 'finishDate', 's-quarter', 'amount'], req.params.staff)}
+		${swals}
+		${closing}
+	`);
+});
+
 router.post('/editactivity', (req, res) => {
-	let id = req.body.id;
-	let result = db.put({id: id, data: req.body});
+	let storage = db.get(req.body.staff).storage;
+	let activities = storage.activities;
+	activities[req.body.id] = { id: req.body.id, data: req.body };
+	storage.activities = activities;
+	db.put({id: req.body.staff, storage: storage});
 	res.status(200).send('Item successfully edited!');
 });
 

@@ -1,1 +1,77 @@
-{"personnel":{"storage":{},"id":"personnel"},"intelligence":{"storage":{},"id":"intelligence"},"operations":{"storage":{"activities":{"nyduls":{"id":"nyduls","data":{"staff":"operations","type":"activities","activity":"SUO","finishDate":"2021-03-15","quarter":"first","amount":"1500","createdAt":1668496622444}},"dgfidm":{"id":"dgfidm","data":{"staff":"operations","type":"activities","activity":"SQT","finishDate":"2021-10-10","quarter":"fourth","amount":"500","createdAt":1668497157077}},"hsyrrq":{"id":"hsyrrq","data":{"staff":"operations","type":"activities","activity":"Deployment","finishDate":"2021-03-03","quarter":"first","amount":"3425","createdAt":1668497188940}}}},"id":"operations"},"logistics":{"storage":{},"id":"logistics"},"signal":{"storage":{},"id":"signal"},"cmo":{"storage":{},"id":"cmo"},"training":{"storage":{},"id":"training"},"finance":{"storage":{},"id":"finance"},"atr":{"storage":{},"id":"atr"}}
+{
+  "personnel": {
+    "storage": {},
+    "id": "personnel"
+  },
+  "intelligence": {
+    "storage": {},
+    "id": "intelligence"
+  },
+  "operations": {
+    "storage": {
+      "activities": {
+        "nyduls": {
+          "id": "nyduls",
+          "data": {
+            "staff": "operations",
+            "type": "activities",
+            "id": "nyduls",
+            "activity": "SUO2",
+            "finishDate": "2022-08-01",
+            "quarter": "first",
+            "amount": "1700"
+          }
+        },
+        "dgfidm": {
+          "id": "dgfidm",
+          "data": {
+            "staff": "operations",
+            "type": "activities",
+            "activity": "SQT",
+            "finishDate": "2021-10-10",
+            "quarter": "fourth",
+            "amount": "500",
+            "createdAt": 1668497157077
+          }
+        },
+        "hsyrrq": {
+          "id": "hsyrrq",
+          "data": {
+            "staff": "operations",
+            "type": "activities",
+            "activity": "Deployment",
+            "finishDate": "2021-03-03",
+            "quarter": "first",
+            "amount": "3425",
+            "createdAt": 1668497188940
+          }
+        }
+      }
+    },
+    "id": "operations"
+  },
+  "logistics": {
+    "storage": {},
+    "id": "logistics"
+  },
+  "signal": {
+    "storage": {},
+    "id": "signal"
+  },
+  "cmo": {
+    "storage": {},
+    "id": "cmo"
+  },
+  "training": {
+    "storage": {},
+    "id": "training"
+  },
+  "finance": {
+    "storage": {},
+    "id": "finance"
+  },
+  "atr": {
+    "storage": {},
+    "id": "atr"
+  }
+}
