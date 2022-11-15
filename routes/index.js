@@ -75,7 +75,7 @@ router.get('/records/:staff', (req, res) => {
 							type: 'GET', url: '/storage/serverstorage.json',
 							success: response => {
 								console.log(response['${req.params.staff}']['storage']['activities']);
-								done(Object.values(response['${req.params.staff}']['storage']['activities']));
+								done(Object.values(response['${req.params.staff}']['storage']['activities']).sort((a, b) => parseInt(a.data.unix)-parseInt(b.data.unix)));
 							}
 						});
 					},
@@ -103,7 +103,7 @@ router.get('/records/:staff', (req, res) => {
 			function template(data) {
 				var html = '<div class="list-group list-group-flush">';
 				data.forEach(d => {
-					html += '<a href="/edit/'+d.data.staff+'/'+d.id+'" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'+d.data.activity+'</h5><small>₱'+d.data.amount+'</small></div><p class="mb-1">Finish Date: '+(new Date(d.data.finishDate)).toLocaleDateString("en-PH", { day: "2-digit", month: "short", year: "numeric"})+'</p><small>'+d.data.quarter.toUpperCase()+' QUARTER '+d.data.year+'</small></a>';
+					html += '<a href="/edit/'+d.data.staff+'/'+d.id+'" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'+d.data.activity+'</h5><small>₱'+moneyfy(d.data.amount)+'</small></div><p class="mb-1">Finish Date: '+(new Date(d.data.finishDate)).toLocaleDateString("en-PH", { day: "2-digit", month: "short", year: "numeric"})+'</p><small>'+d.data.quarter.toUpperCase()+' QUARTER '+d.data.year+'</small></a>';
 				});
 				html += '</div>';
 				return html;
@@ -172,6 +172,7 @@ router.post('/editactivity', (req, res) => {
 	let storage = db.get(req.body.staff).storage;
 	let activities = storage.activities;
 	req.body.createdAt = (new Date).getTime();
+	req.body.unix = (new Date(req.body.finishDate)).getTime();
 	activities[req.body.id] = { id: req.body.id, data: req.body };
 	storage.activities = activities;
 	db.put({id: req.body.staff, storage: storage});
@@ -190,16 +191,19 @@ function addToDb(id, addTo, data) {
 	if(node != null) {
 		data.createdAt = (new Date).getTime();
 		storage = node.storage;
+		// For New Activities
 		if(storage[addTo] == null || storage[addTo] == undefined) {
 			dataHolder[newEntry]['id'] = newEntry;
 			dataHolder[newEntry]['data'] = data;
 			storage[addTo] = dataHolder;
 			db.put({ id: id, storage: storage });
 			return { status: 'success', message: `Database entry successfully recorded with id: ${newEntry}` };
+		// Already have Activities on storage
 		} else {
 			dataHolder = storage[addTo];
 			dataHolder[newEntry] = {};
 			dataHolder[newEntry]['id'] = newEntry;
+			data.unix = (new Date(data.finishDate)).getTime();
 			dataHolder[newEntry]['data'] = data;
 			storage[addTo] = dataHolder;
 			db.put({ id: id, storage: storage });

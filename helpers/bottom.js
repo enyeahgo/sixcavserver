@@ -9,6 +9,7 @@ let bottom = `
   <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/socket.io/socket.io.min.js"></script>
   <script src="/paginationjs/dist/pagination.js"></script>
+  <script src="/myfunctions.js"></script>
 	`;
 
 module.exports = bottom;
