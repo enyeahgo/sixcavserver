@@ -131,7 +131,7 @@ router.get('/records/:staff', (req, res) => {
 			function template(data) {
 				var html = '<ul class="list-group list-group-flush">';
 				data.forEach(d => {
-					html += '<li class="list-group-item d-flex justify-content-between align-items-center">' + d.activity + '<span>' + d.amount + '</span></li>'
+					html += '<li class="list-group-item d-flex justify-content-between align-items-center">' + d.data.activity + '<span>' + d.id + '</span><span>'+d.data.amount+'</span></li>'
 				});
 				html += '</ul>';
 				return html;
@@ -141,12 +141,10 @@ router.get('/records/:staff', (req, res) => {
 	`);
 });
 
-router.get('/n', (req, res) => {
-	let result = '';
-	for(let i = 1; i < 100; i++) {
-		result += `${i}, `
-	}
-	res.send(result);
+router.post('/editactivity', (req, res) => {
+	let id = req.body.id;
+	let result = db.put({id: id, data: req.body});
+	res.status(200).send('Item successfully edited!');
 });
 
 // FUNCTIONS
@@ -159,16 +157,19 @@ function addToDb(id, addTo, data) {
 	let newEntry = randomString();
 	let dataHolder = {};
 	if(node != null) {
-		data.id = newEntry;
+		data.createdAt = (new Date).getTime();
 		storage = node.storage;
 		if(storage[addTo] == null || storage[addTo] == undefined) {
-			dataHolder[newEntry] = data;
+			dataHolder[newEntry]['id'] = newEntry;
+			dataHolder[newEntry]['data'] = data;
 			storage[addTo] = dataHolder;
 			db.put({ id: id, storage: storage });
 			return { status: 'success', message: `Database entry successfully recorded with id: ${newEntry}` };
 		} else {
 			dataHolder = storage[addTo];
-			dataHolder[newEntry] = data;
+			dataHolder[newEntry] = {};
+			dataHolder[newEntry]['id'] = newEntry;
+			dataHolder[newEntry]['data'] = data;
 			storage[addTo] = dataHolder;
 			db.put({ id: id, storage: storage });
 			return { status: 'success', message: `Database entry successfully recorded with id: ${newEntry}` };
