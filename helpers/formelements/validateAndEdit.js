@@ -23,6 +23,9 @@ let validateAndSend = (url, btnid, inputArr, staff) => {
             toast(response.data, 'success');
           });
           socket.emit('dbchanged', '${staff}');
+          setTimeout(()=>{
+            location.href = '/records/${staff}';
+          }, 1500);
         } else {
           toast('Please fill-out all items.', 'error');
         }

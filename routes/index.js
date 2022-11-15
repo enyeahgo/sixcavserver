@@ -40,36 +40,6 @@ router.get('/', (req, res) => {
 	`);
 });
 
-router.get('/newactivity/:id', (req, res) => {
-	let staff = req.params.id;
-	res.send(`
-		${top(staff)}
-		<div class="card shadow-sm">
-			<div class="card-header bg-success text-light">Add New Record</div>
-			<div class="card-body">
-				${hidden('staff', staff)}
-				${hidden('type', 'activities')}
-				${textInput('activity', 'The activity name.')}
-				${datePicker('finishDate', 'Finish Date', 'The date that the activity finished.')}
-				${select('quarter', 'Choose what quarter is this activity', {
-					first: 'First Quarter', second: 'Second Quarter', third: 'Third Quarter', fourth: 'Fourth Quarter'
-				})}
-				${amountInput('amount', 'The amount of the activity.')}
-				${submitBtn('saveBtn', 'Submit')}
-			</div>
-		</div>
-		${bottom}
-		${validateAndSend('/newactivity', 'saveBtn', ['staff', 'type', 'activity', 'finishDate', 's-quarter', 'amount'], staff)}
-		${swals}
-		${closing}
-	`);
-});
-
-router.post('/newactivity', (req, res) => {
-	let result = addToDb(req.body.staff, req.body.type, req.body);
-	res.status(200).send(result.message);
-});
-
 router.get('/records/:staff', (req, res) => {
 	res.send(`
 		${top(req.params.staff+' Records')}
@@ -84,7 +54,9 @@ router.get('/records/:staff', (req, res) => {
 			var pc = $('#pagination-container');
 
 			window.addEventListener('load', () => {
-				localStorage.setItem('currentPage', 1);
+				if(document.referrer.split('/')[3] != 'edit') {
+					localStorage.setItem('currentPage', 1);
+				}
 				updateData(true);
 			});
 
@@ -129,16 +101,45 @@ router.get('/records/:staff', (req, res) => {
 			}
 
 			function template(data) {
-				var html = '<ul class="list-group list-group-flush">';
+				var html = '<div class="list-group list-group-flush">';
 				data.forEach(d => {
-					html += '<li class="list-group-item d-flex justify-content-between align-items-center">' + d.data.activity + '<span>' + d.id + '</span><span>'+d.data.amount+'</span></li>'
+					html += '<a href="/edit/'+d.data.staff+'/'+d.id+'" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'+d.data.activity+'</h5><small>₱'+d.data.amount+'</small></div><p class="mb-1">Finish Date: '+(new Date(d.data.finishDate)).toLocaleDateString("en-PH", { day: "2-digit", month: "short", year: "numeric"})+'</p><small>'+d.data.quarter.toUpperCase()+' QUARTER '+d.data.year+'</small></a>';
 				});
-				html += '</ul>';
+				html += '</div>';
 				return html;
 			}
 		</script>
 		${closing}
 	`);
+});
+
+router.get('/newactivity/:id', (req, res) => {
+	let staff = req.params.id;
+	res.send(`
+		${top(staff)}
+		<div class="card shadow-sm">
+			<div class="card-header bg-success text-light">Add New Record</div>
+			<div class="card-body">
+				${hidden('staff', staff)}
+				${hidden('type', 'activities')}
+				${textInput('activity', '', 'The activity name.')}
+				${datePicker('finishDate', '', 'Finish Date', 'The date that the activity finished.')}
+				${select('year', '', 'Choose what year is this activity', ['2021-2021', '2022-2022'])}
+				${select('quarter', '', 'Choose what quarter is this activity', ['first-First Quarter', 'second-Second Quarter', 'third-Third Quarter', 'fourth-Fourth Quarter'])}
+				${amountInput('amount', '', 'The amount of the activity.')}
+				${submitBtn('saveBtn', 'Submit')}
+			</div>
+		</div>
+		${bottom}
+		${validateAndSend('/newactivity', 'saveBtn', ['staff', 'type', 'activity', 'finishDate', 's-year', 's-quarter', 'amount'], staff)}
+		${swals}
+		${closing}
+	`);
+});
+
+router.post('/newactivity', (req, res) => {
+	let result = addToDb(req.body.staff, req.body.type, req.body);
+	res.status(200).send(result.message);
 });
 
 router.get('/edit/:staff/:id', (req, res) => {
@@ -154,15 +155,14 @@ router.get('/edit/:staff/:id', (req, res) => {
 				${hidden('id', req.params.id)}
 				${textInput('activity', data.activity, 'The activity name.')}
 				${datePicker('finishDate', data.finishDate, 'Finish Date', 'The date that the activity finished.')}
-				${select('quarter', data.quarter, 'Choose what quarter is this activity', {
-					first: 'First Quarter', second: 'Second Quarter', third: 'Third Quarter', fourth: 'Fourth Quarter'
-				})}
+				${select('year', data.year, 'Choose what year is this activity', ['2021-2021', '2022-2022'])}
+				${select('quarter', data.quarter, 'Choose what quarter is this activity', ['first-First Quarter', 'second-Second Quarter', 'third-Third Quarter', 'fourth-Fourth Quarter'])}
 				${amountInput('amount', data.amount, 'The amount of the activity.')}
 				${submitBtn('saveBtn', 'Submit Edit')}
 			</div>
 		</div>
 		${bottom}
-		${validateAndEdit('/editactivity', 'saveBtn', ['staff', 'type', 'id', 'activity', 'finishDate', 's-quarter', 'amount'], req.params.staff)}
+		${validateAndEdit('/editactivity', 'saveBtn', ['staff', 'type', 'id', 'activity', 'finishDate', 's-year', 's-quarter', 'amount'], req.params.staff)}
 		${swals}
 		${closing}
 	`);
@@ -171,6 +171,7 @@ router.get('/edit/:staff/:id', (req, res) => {
 router.post('/editactivity', (req, res) => {
 	let storage = db.get(req.body.staff).storage;
 	let activities = storage.activities;
+	req.body.createdAt = (new Date).getTime();
 	activities[req.body.id] = { id: req.body.id, data: req.body };
 	storage.activities = activities;
 	db.put({id: req.body.staff, storage: storage});
