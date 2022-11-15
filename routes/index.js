@@ -15,26 +15,22 @@ var textInput = require('../helpers/formelements/textInput'), select = require('
 router.get('/', (req, res) => {
 	res.send(`
 		${top('6Cav Server')}
-		${textInput('chat', 'Type your message here.')}
-		<button class="btn btn-lg btn-primary" onclick="sendChat()">Send</button>
-		<br><br>
-		<div id="brdcst">Nothing here yet...</div>
+		<div class="card shadow-sm">
+			<div class="card-body p-0">
+				<div class="list-group list-group-flush">
+					<a href="/records/personnel" class="list-group-item list-group-item-action flex-column align-items-start">Personnel</a>
+					<a href="/records/intelligence" class="list-group-item list-group-item-action flex-column align-items-start">Intelligence</a>
+					<a href="/records/operations" class="list-group-item list-group-item-action flex-column align-items-start">Operations</a>
+					<a href="/records/logistics" class="list-group-item list-group-item-action flex-column align-items-start">Logistics</a>
+					<a href="/records/signal" class="list-group-item list-group-item-action flex-column align-items-start">Signal</a>
+					<a href="/records/cmo" class="list-group-item list-group-item-action flex-column align-items-start">CMO</a>
+					<a href="/records/training" class="list-group-item list-group-item-action flex-column align-items-start">Training</a>
+					<a href="/records/finance" class="list-group-item list-group-item-action flex-column align-items-start">Finance</a>
+					<a href="/records/atr" class="list-group-item list-group-item-action flex-column align-items-start">ATR</a>
+				</div>
+			</div>
+		</div>
 		${bottom}
-		<script type="text/javascript">
-			const socket = io();
-			function sendChat() {
-			  if(document.getElementById('chat').value == '') {
-			    toast('Chat must not be empty!', 'error');
-			  } else {
-				  socket.emit('chat', document.getElementById('chat').value);
-				  toast('Chat sent!', 'success');
-			  }
-			}
-			socket.on('broadcast', msg => {
-				console.log(msg);
-				document.getElementById('brdcst').innerText = msg;
-			});
-		</script>
 		${swals}
 		${closing}
 	`);
@@ -42,9 +38,12 @@ router.get('/', (req, res) => {
 
 router.get('/records/:staff', (req, res) => {
 	res.send(`
-		${top(req.params.staff+' Records')}
+		${top(req.params.staff+' Activities')}
 		<div class="card shadow-sm mb-3">
-			<div class="card-header bg-success text-light">Records</div>
+			<div class="card-header bg-success text-light d-flex w-100 justify-content-between">
+				<span>Records</span>
+				<span><a href="/newactivity/${req.params.staff}" class="btn btn-sm btn-primary outlined"><small>Add Record</small></a></span>
+			</div>
 			<div class="card-body" id="data-container"></div>
 		</div>
 		<div id="pagination-container" class="d-flex justify-content-center"></div>
@@ -194,6 +193,7 @@ function addToDb(id, addTo, data) {
 		// For New Activities
 		if(storage[addTo] == null || storage[addTo] == undefined) {
 			dataHolder[newEntry]['id'] = newEntry;
+			data.unix = (new Date(data.finishDate)).getTime();
 			dataHolder[newEntry]['data'] = data;
 			storage[addTo] = dataHolder;
 			db.put({ id: id, storage: storage });
