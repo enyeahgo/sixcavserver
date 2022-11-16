@@ -42,7 +42,10 @@ router.get('/records/:staff', (req, res) => {
 		<div class="card shadow-sm mb-3">
 			<div class="card-header bg-success text-light d-flex w-100 justify-content-between">
 				<span>Records</span>
-				<span><a href="/newactivity/${req.params.staff}" class="btn btn-sm btn-primary outlined"><small>Add Record</small></a></span>
+				<span>
+				  <a href="/" class="btn btn-sm btn-primary outlined"><small>Home</small></a>
+				  <a href="/newactivity/${req.params.staff}" class="btn btn-sm btn-primary outlined"><small>Add Record</small></a>
+				</span>
 			</div>
 			<div class="card-body" id="data-container"></div>
 		</div>
@@ -117,7 +120,10 @@ router.get('/newactivity/:id', (req, res) => {
 	res.send(`
 		${top(staff)}
 		<div class="card shadow-sm">
-			<div class="card-header bg-success text-light">Add New Record</div>
+			<div class="card-header bg-success text-light d-flex w-100 justify-content-between">
+				<span>Add New Record</span>
+				<span><a href="/records/${staff}" class="btn btn-sm btn-secondary outlined"><small>View Records</small></a></span>
+			</div>
 			<div class="card-body">
 				${hidden('staff', staff)}
 				${hidden('type', 'activities')}
