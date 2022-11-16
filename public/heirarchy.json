@@ -1,0 +1,2300 @@
+{
+  "MP01": {
+    "id": "MP01",
+    "title": "Capability Development Program",
+    "types": {
+      "SP1": {
+        "id": "SP1",
+        "title": "Doctrine Development",
+        "types": {
+          "SP1_1": {
+            "id": "SP1_1",
+            "title": "Doctrine Planning and Research"
+          },
+          "SP1_2": {
+            "id": "SP1_2",
+            "title": "Doctrine Writing and Publication"
+          },
+          "SP1_3": {
+            "id": "SP1_3",
+            "title": "Doctrine Validation and Revision"
+          },
+          "SP1_4": {
+            "id": "SP1_4",
+            "title": "Doctrine Development Writers and Proponent Workshop"
+          },
+          "SP1_5": {
+            "id": "SP1_5",
+            "title": "Doctrine Summit"
+          },
+          "SP1_6": {
+            "id": "SP1_6",
+            "title": "Development of Proponents Advice"
+          },
+          "SP1_7": {
+            "id": "SP1_7",
+            "title": "Promulgation of Manuals"
+          },
+          "SP1_8": {
+            "id": "SP1_8",
+            "title": "Productions of Manuals & Handbooks"
+          },
+          "SP1_9": {
+            "id": "SP1_9",
+            "title": "Other doctrine Development Activities"
+          },
+          "SP1_10": {
+            "id": "SP1_10",
+            "title": "Research and Studies on Lesson Learned and TTP"
+          }
+        }
+      },
+      "SP2": {
+        "id": "SP2",
+        "title": "Organizational Research and Development",
+        "types": {
+          "SP2_1": {
+            "id": "SP2_1",
+            "title": "TOE Development Program"
+          },
+          "SP2_2": {
+            "id": "SP2_2",
+            "title": "Strategic Assessment"
+          },
+          "SP2_3": {
+            "id": "SP2_3",
+            "title": "Threat Assessment"
+          },
+          "SP2_4": {
+            "id": "SP2_4",
+            "title": "Organization Assessment"
+          },
+          "SP2_5": {
+            "id": "SP2_5",
+            "title": "Capability Assessment"
+          },
+          "SP2_6": {
+            "id": "SP2_6",
+            "title": "Organizational Development Plan Formulation"
+          },
+          "SP2_7": {
+            "id": "SP2_7",
+            "title": "POM Development"
+          },
+          "SP2_8": {
+            "id": "SP2_8",
+            "title": "PA Support Plan Development"
+          },
+          "SP2_9": {
+            "id": "SP2_9",
+            "title": "PA Reservist Mobilization Plan"
+          },
+          "SP2_10": {
+            "id": "SP2_10",
+            "title": "ISO Assessment"
+          },
+          "SP2_11": {
+            "id": "SP2_11",
+            "title": "Strategy and Special Studies/Policy"
+          }
+        }
+      },
+      "SP3": {
+        "id": "SP3",
+        "title": "Education, Training Research and Development",
+        "types": {
+          "SP3_1": {
+            "id": "SP3_1",
+            "title": "Curriculum Development"
+          },
+          "SP3_2": {
+            "id": "SP3_2",
+            "title": "ACSCET Evaluation and Validation"
+          },
+          "SP3_3": {
+            "id": "SP3_3",
+            "title": "Training Personnel Development Program"
+          },
+          "SP3_4": {
+            "id": "SP3_4",
+            "title": "Training Evaluation and Research"
+          },
+          "SP3_5": {
+            "id": "SP3_5",
+            "title": "Training Development Program"
+          },
+          "SP3_6": {
+            "id": "SP3_6",
+            "title": "Combat Fitness and Wellness Development Program"
+          },
+          "SP3_7": {
+            "id": "SP3_7",
+            "title": "Training Evaluation, Review and Assessment program"
+          }
+        }
+      },
+      "SP4": {
+        "id": "SP4",
+        "title": "Materiel Research and Development",
+        "types": {
+          "SP4_1": {
+            "id": "SP4_1",
+            "title": "Materiel Research & Development Activities"
+          }
+        }
+      },
+      "SP5": {
+        "id": "SP5",
+        "title": "Leadership Research and Development",
+        "types": {
+          "SP5_1": {
+            "id": "SP5_1",
+            "title": "Officers Development Program"
+          },
+          "SP5_2": {
+            "id": "SP5_2",
+            "title": "Enlisted Personnel Development Program"
+          },
+          "SP5_3": {
+            "id": "SP5_3",
+            "title": "Civilian Employee Development Program"
+          },
+          "SP5_4": {
+            "id": "SP5_4",
+            "title": "Reservist Development Program"
+          }
+        }
+      },
+      "SP6": {
+        "id": "SP6",
+        "title": "Personnel Research and Development",
+        "types": {
+          "SP6_1": {
+            "id": "SP6_1",
+            "title": "Personnel Research & Development Program"
+          }
+        }
+      },
+      "SP7": {
+        "id": "SP7",
+        "title": "Facilities Research and Development",
+        "types": {
+          "SP7_1": {
+            "id": "SP7_1",
+            "title": "CMDP Program"
+          },
+          "SP7_2": {
+            "id": "SP7_2",
+            "title": "DAED Program"
+          }
+        }
+      }
+    }
+  },
+  "MP02": {
+    "id": "MP02",
+    "title": "Human Resource Development Program",
+    "types": {
+      "SP8": {
+        "id": "SP8",
+        "title": "Personnel Management",
+        "types": {
+          "SP8_1": {
+            "id": "SP8_1",
+            "title": "Recruitment Program"
+          },
+          "SP8_2": {
+            "id": "SP8_2",
+            "title": "Pre-Entry Training"
+          },
+          "SP8_3": {
+            "id": "SP8_3",
+            "title": "Career Courses Program"
+          },
+          "SP8_4": {
+            "id": "SP8_4",
+            "title": "Professional Education"
+          }
+        }
+      }
+    }
+  },
+  "MP03": {
+    "id": "MP03",
+    "title": "Unit Organizational Development Program",
+    "types": {
+      "SP9": {
+        "id": "SP9",
+        "title": "Support to PA Force Structure Implementation",
+        "types": {
+          "SP9_1": {
+            "id": "SP9_1",
+            "title": "Activation & Deactivation of Unit/Office"
+          },
+          "SP9_2": {
+            "id": "SP9_2",
+            "title": "Support to Deployment and Redeployment"
+          },
+          "SP9_3": {
+            "id": "SP9_3",
+            "title": "Monitoring of Operational Readiness Condition"
+          }
+        }
+      }
+    }
+  },
+  "MP04": {
+    "id": "MP04",
+    "title": "Training Program",
+    "types": {
+      "SP10": {
+        "id": "SP10",
+        "title": "Individual Training Program",
+        "types": {
+          "SP10_1": {
+            "id": "SP10_1",
+            "title": "In-service Training"
+          },
+          "SP10_2": {
+            "id": "SP10_2",
+            "title": "In-house Training"
+          },
+          "SP10_3": {
+            "id": "SP10_3",
+            "title": "Specialization Courses"
+          }
+        }
+      },
+      "SP11": {
+        "id": "SP11",
+        "title": "Unit Training Program",
+        "types": {
+          "SP11_1": {
+            "id": "SP11_1",
+            "title": "BOE"
+          },
+          "SP11_2": {
+            "id": "SP11_2",
+            "title": "BRP"
+          },
+          "SP11_3": {
+            "id": "SP11_3",
+            "title": "Sustainment Training (Regular)"
+          },
+          "SP11_4": {
+            "id": "SP11_4",
+            "title": "Sustainment Training (Reservist)"
+          },
+          "SP11_5": {
+            "id": "SP11_5",
+            "title": "Unit Training Development (Regular)"
+          },
+          "SP11_6": {
+            "id": "SP11_6",
+            "title": "Unit Training Development (CAA)"
+          },
+          "SP11_7": {
+            "id": "SP11_7",
+            "title": "Unit Training Development (Reservist)"
+          }
+        }
+      }
+    }
+  },
+  "MP05": {
+    "id": "MP05",
+    "title": "Equipment Readiness Program",
+    "types": {
+      "SP12": {
+        "id": "SP12",
+        "title": "Mobility Readiness Program",
+        "types": {
+          "SP12_1": {
+            "id": "SP12_1",
+            "title": "Procurement of Mobility Equipment"
+          }
+        }
+      },
+      "SP13": {
+        "id": "SP13",
+        "title": "Firepower Readiness Program",
+        "types": {
+          "SP13_1": {
+            "id": "SP13_1",
+            "title": "Procurement of Firepower Equipment"
+          }
+        }
+      },
+      "SP14": {
+        "id": "SP14",
+        "title": "C4S- Communication Readiness Program",
+        "types": {
+          "SP14_1": {
+            "id": "SP14_1",
+            "title": "Procurement of Communication Equipment"
+          }
+        }
+      },
+      "SP15": {
+        "id": "SP15",
+        "title": "C4S- Electronic Equipment Readiness Program",
+        "types": {
+          "SP15_1": {
+            "id": "SP15_1",
+            "title": "Procurement of Electronic Equipment"
+          }
+        }
+      },
+      "SP16": {
+        "id": "SP16",
+        "title": "C4S- Information Equipment Readiness Program",
+        "types": {
+          "SP16_1": {
+            "id": "SP16_1",
+            "title": "Procurement of Information System Equipment"
+          }
+        }
+      },
+      "SP17": {
+        "id": "SP17",
+        "title": "C4S- Cyber Equipment Readiness Program",
+        "types": {
+          "SP17_1": {
+            "id": "SP17_1",
+            "title": "Procurement of Cyber Equipment"
+          }
+        }
+      },
+      "SP18": {
+        "id": "SP18",
+        "title": "Engineering Equipment Readiness Program",
+        "types": {
+          "SP18_1": {
+            "id": "SP18_1",
+            "title": "Procurement of Engineering Equipment"
+          }
+        }
+      },
+      "SP19": {
+        "id": "SP19",
+        "title": "Quartermaster Equipment Readiness Program",
+        "types": {
+          "SP19_1": {
+            "id": "SP19_1",
+            "title": "Procurement of Quartermaster Equipment"
+          }
+        }
+      },
+      "SP20": {
+        "id": "SP20",
+        "title": "Intel Equipment Readiness Program",
+        "types": {
+          "SP20_1": {
+            "id": "SP20_1",
+            "title": "Procurement of Intel Equipment"
+          }
+        }
+      },
+      "SP21": {
+        "id": "SP21",
+        "title": "HADR Equipment Readiness Program",
+        "types": {
+          "SP21_1": {
+            "id": "SP21_1",
+            "title": "Procurement of HADR Equipment"
+          }
+        }
+      },
+      "SP22": {
+        "id": "SP22",
+        "title": "CMO Equipment Readiness Program",
+        "types": {
+          "SP22_1": {
+            "id": "SP22_1",
+            "title": "Procurement of CMO Equipment"
+          }
+        }
+      },
+      "SP23": {
+        "id": "SP23",
+        "title": "Health Care Equipment Readiness Program",
+        "types": {
+          "SP23_1": {
+            "id": "SP23_1",
+            "title": "Procurement of Health Care Equipment"
+          }
+        }
+      }
+    }
+  },
+  "MP06": {
+    "id": "MP06",
+    "title": "Facilities Development Program",
+    "types": {
+      "SP24": {
+        "id": "SP24",
+        "title": "Operational Facilities Construction",
+        "types": {
+          "SP24_1": {
+            "id": "SP24_1",
+            "title": "Construction of Operational Facilities"
+          }
+        }
+      },
+      "SP25": {
+        "id": "SP25",
+        "title": "Base Utilities and Facilities Construction",
+        "types": {
+          "SP25_1": {
+            "id": "SP25_1",
+            "title": "Construction of Base Facilities"
+          }
+        }
+      },
+      "SP26": {
+        "id": "SP26",
+        "title": "Community Facilities Construction",
+        "types": {
+          "SP26_1": {
+            "id": "SP26_1",
+            "title": "Construction of Community Facilities"
+          }
+        }
+      }
+    }
+  },
+  "MP07": {
+    "id": "MP07",
+    "title": "Equipment Maintenance Program",
+    "types": {
+      "SP27": {
+        "id": "SP27",
+        "title": "Mobility Equipment Maintenance  Readiness",
+        "types": {
+          "SP27_1": {
+            "id": "SP27_1",
+            "title": "R&M of Mil Veh - Armor Vehicles"
+          },
+          "SP27_8": {
+            "id": "SP27_8",
+            "title": "R&M of SPV - Van"
+          },
+          "SP27_9": {
+            "id": "SP27_9",
+            "title": "R&M of SPV - SUV"
+          },
+          "SP27_10": {
+            "id": "SP27_10",
+            "title": "R&M of SPV - AUV/Other Admin Veh"
+          },
+          "SP27_11": {
+            "id": "SP27_11",
+            "title": "R&M of SPV - Pick Up"
+          },
+          "SP27_12": {
+            "id": "SP27_12",
+            "title": "R&M of SPV - Motorcycles"
+          },
+          "SP27_13": {
+            "id": "SP27_13",
+            "title": "R&M of Watercraft - Assault Watercraft"
+          },
+          "SP27_14": {
+            "id": "SP27_14",
+            "title": "R&M of Watercraft - Air Assault Boat"
+          },
+          "SP27_15": {
+            "id": "SP27_15",
+            "title": "R&M of Watercraft - Pumpboat"
+          },
+          "SP27_16": {
+            "id": "SP27_16",
+            "title": "R&M of Watercraft - Rubberboat"
+          },
+          "SP27_17": {
+            "id": "SP27_17",
+            "title": "R&M of Watercraft - other water assets"
+          },
+          "SP27_18": {
+            "id": "SP27_18",
+            "title": "R&M of Air Assets - Cessna Plane"
+          },
+          "SP27_19": {
+            "id": "SP27_19",
+            "title": "R&M of Air Assets - Other Aircraft"
+          },
+          "SP27_20": {
+            "id": "SP27_20",
+            "title": "Procurement of POL"
+          },
+          "SP27_21": {
+            "id": "SP27_21",
+            "title": "Procurement of Tires"
+          },
+          "SP27_22": {
+            "id": "SP27_22",
+            "title": "Procurement of Batteries"
+          },
+          "SP27_23": {
+            "id": "SP27_23",
+            "title": "Procurement of Spares"
+          },
+          "SP27_24": {
+            "id": "SP27_24",
+            "title": "Payment of Vehicle Registration & Insurance"
+          },
+          "SP27_25": {
+            "id": "SP27_25",
+            "title": "Payment of Watercraft Registration & Insurance"
+          },
+          "SP27_26": {
+            "id": "SP27_26",
+            "title": "Payment of Aircraft Registration & Insurance"
+          }
+        }
+      },
+      "SP28": {
+        "id": "SP28",
+        "title": "Firepower Equipment Maintenance Readiness",
+        "types": {
+          "SP28_1": {
+            "id": "SP28_1",
+            "title": "R&M of Armaments - Individual weapons"
+          },
+          "SP28_2": {
+            "id": "SP28_2",
+            "title": "R&M of Armaments - Grenade Launchers/AGL"
+          },
+          "SP28_3": {
+            "id": "SP28_3",
+            "title": "R&M of Armaments - Crew-served weapons"
+          },
+          "SP28_4": {
+            "id": "SP28_4",
+            "title": "R&M of Armaments - Recoilles Rifle/Anti-tank Weapon"
+          },
+          "SP28_5": {
+            "id": "SP28_5",
+            "title": "R&M of Armaments - Mortars"
+          },
+          "SP28_6": {
+            "id": "SP28_6",
+            "title": "R&M of Armaments - Vehicle-mounted weapons"
+          },
+          "SP28_7": {
+            "id": "SP28_7",
+            "title": "R&M of Armaments - Howitzers"
+          },
+          "SP28_9": {
+            "id": "SP28_9",
+            "title": "Procurement of Ammunition"
+          },
+          "SP28_10": {
+            "id": "SP28_10",
+            "title": "Procurement of Magazine Assemblies"
+          },
+          "SP28_11": {
+            "id": "SP28_11",
+            "title": "Procurement of Armament Spares"
+          }
+        }
+      },
+      "SP29": {
+        "id": "SP29",
+        "title": "Quartermaster Equipment Maintenance Readiness",
+        "types": {
+          "SP29_1": {
+            "id": "SP29_1",
+            "title": "R&M of Quartermaster Equipment"
+          }
+        }
+      },
+      "SP30": {
+        "id": "SP30",
+        "title": "Engineering Equipment Maintenance Readiness",
+        "types": {
+          "SP30_1": {
+            "id": "SP30_1",
+            "title": "R&M of Engineering Equipment"
+          }
+        }
+      },
+      "SP31": {
+        "id": "SP31",
+        "title": "C4S- Communication Equipment Maintenance Program ",
+        "types": {
+          "SP31_1": {
+            "id": "SP31_1",
+            "title": "R&M of Tactical Communications Equipment"
+          },
+          "SP31_2": {
+            "id": "SP31_2",
+            "title": "R&M of Commercial Radio (Non-Military Specs) Equipment"
+          },
+          "SP31_3": {
+            "id": "SP31_3",
+            "title": "R&M of Fixed Communications Equipment"
+          },
+          "SP31_4": {
+            "id": "SP31_4",
+            "title": "R&M of Radio Broadcasting System (RBS)"
+          }
+        }
+      },
+      "SP32": {
+        "id": "SP32",
+        "title": "C4S- Electronic Equipment Maintenance Program ",
+        "types": {
+          "SP32_1": {
+            "id": "SP32_1",
+            "title": "R&M of Global Positioning System (GPS)"
+          },
+          "SP32_2": {
+            "id": "SP32_2",
+            "title": "R&M of CCTV"
+          },
+          "SP32_3": {
+            "id": "SP32_3",
+            "title": "R&M of Night Fighting System"
+          },
+          "SP32_4": {
+            "id": "SP32_4",
+            "title": "R&M of Audio/Video System"
+          },
+          "SP32_5": {
+            "id": "SP32_5",
+            "title": "R&M of Solar Power System"
+          },
+          "SP32_6": {
+            "id": "SP32_6",
+            "title": "Payment of GPS Tracker Subscription and Services"
+          }
+        }
+      },
+      "SP33": {
+        "id": "SP33",
+        "title": "C4S- Information System Equipment Maintenance Program ",
+        "types": {
+          "SP33_1": {
+            "id": "SP33_1",
+            "title": "R&M of Computer Hardware System"
+          },
+          "SP33_2": {
+            "id": "SP33_2",
+            "title": "R&M of Computer Software System"
+          },
+          "SP33_3": {
+            "id": "SP33_3",
+            "title": "R&M of Servers (WAN/LAN)"
+          },
+          "SP33_4": {
+            "id": "SP33_4",
+            "title": "R&M of Database"
+          },
+          "SP33_5": {
+            "id": "SP33_5",
+            "title": "R&M of IP Radio"
+          },
+          "SP33_6": {
+            "id": "SP33_6",
+            "title": "R&M of IT Equipment"
+          }
+        }
+      },
+      "SP34": {
+        "id": "SP34",
+        "title": "C4S- Cyber Equipment Maintenance Readiness",
+        "types": {
+          "SP34_1": {
+            "id": "SP34_1",
+            "title": "R&M of Cyber Mission Essential Equipment"
+          },
+          "SP34_2": {
+            "id": "SP34_2",
+            "title": "R&M of Internet Services - Gateway Security & Antivirus"
+          },
+          "SP34_3": {
+            "id": "SP34_3",
+            "title": "R&M of Cyber Laboratory"
+          },
+          "SP34_4": {
+            "id": "SP34_4",
+            "title": "R&M of PANET Security Monitoring Appliances (SIEM)"
+          },
+          "SP34_5": {
+            "id": "SP34_5",
+            "title": "R&M of Enterprise Endpoint Security"
+          },
+          "SP34_6": {
+            "id": "SP34_6",
+            "title": "R&M of Intrusion Detection Systems"
+          },
+          "SP34_7": {
+            "id": "SP34_7",
+            "title": "R&M of Log Storage for Security"
+          },
+          "SP34_8": {
+            "id": "SP34_8",
+            "title": "R&M of Network Security"
+          },
+          "SP34_9": {
+            "id": "SP34_9",
+            "title": "Support to Anti-Virus Subscription"
+          }
+        }
+      },
+      "SP35": {
+        "id": "SP35",
+        "title": "HADR Equipment Maintenance Readiness",
+        "types": {
+          "SP35_1": {
+            "id": "SP35_1",
+            "title": "R&M of HADR Equipment"
+          }
+        }
+      },
+      "SP36": {
+        "id": "SP36",
+        "title": "Intel Equipment Maintenance Readiness",
+        "types": {
+          "SP36_1": {
+            "id": "SP36_1",
+            "title": "R&M of Intel Equipment"
+          }
+        }
+      },
+      "SP37": {
+        "id": "SP37",
+        "title": "CMO Equipment Maintenance Readiness",
+        "types": {
+          "SP37_1": {
+            "id": "SP37_1",
+            "title": "R&M of CMO Equipment"
+          }
+        }
+      },
+      "SP38": {
+        "id": "SP38",
+        "title": "Fire Support Equipment Maintenance Readiness",
+        "types": {
+          "SP38_1": {
+            "id": "SP38_1",
+            "title": "R&M of Fire Control Instruments"
+          },
+          "SP38_2": {
+            "id": "SP38_2",
+            "title": "R&M of Fire Direction Computer System"
+          }
+        }
+      },
+      "SP39": {
+        "id": "SP39",
+        "title": "Health Care Equipment  Maintenance Readiness",
+        "types": {
+          "SP39_1": {
+            "id": "SP39_1",
+            "title": "R&M of Health Care Equipment"
+          }
+        }
+      }
+    }
+  },
+  "MP08": {
+    "id": "MP08",
+    "title": "Facilities Maintenance Program",
+    "types": {
+      "SP40": {
+        "id": "SP40",
+        "title": "Maintenance of Operational Facilities",
+        "types": {
+          "SP40_1": {
+            "id": "SP40_1",
+            "title": "R&M of Administrative Building"
+          },
+          "SP40_2": {
+            "id": "SP40_2",
+            "title": "R&M of Communication Facilities"
+          },
+          "SP40_3": {
+            "id": "SP40_3",
+            "title": "R&M of Base/Camp Security Facilities/Defenses"
+          },
+          "SP40_4": {
+            "id": "SP40_4",
+            "title": "R&M of Other Operational Facilities"
+          },
+          "SP40_5": {
+            "id": "SP40_5",
+            "title": "R&M of TOCs"
+          }
+        }
+      },
+      "SP41": {
+        "id": "SP41",
+        "title": "Maintenance of Operational Support Facilities",
+        "types": {
+          "SP41_1": {
+            "id": "SP41_1",
+            "title": "R&M of Training Facilities"
+          },
+          "SP41_2": {
+            "id": "SP41_2",
+            "title": "R&M of Health Facilities"
+          },
+          "SP41_3": {
+            "id": "SP41_3",
+            "title": "R&M of Drug Testing Facilities"
+          },
+          "SP41_4": {
+            "id": "SP41_4",
+            "title": "R&M of Grandstand & Ceremonial Areas"
+          },
+          "SP41_5": {
+            "id": "SP41_5",
+            "title": "R&M of Billeting Facilities"
+          },
+          "SP41_6": {
+            "id": "SP41_6",
+            "title": "R&M of Mess Facilities"
+          },
+          "SP41_7": {
+            "id": "SP41_7",
+            "title": "R&M of Storage Facilities"
+          },
+          "SP41_8": {
+            "id": "SP41_8",
+            "title": "R&M of Water System"
+          },
+          "SP41_9": {
+            "id": "SP41_9",
+            "title": "R&M of Electrical Line System"
+          },
+          "SP41_10": {
+            "id": "SP41_10",
+            "title": "R&M of Road, Surfaced"
+          }
+        }
+      },
+      "SP42": {
+        "id": "SP42",
+        "title": "Maintenance of Community Facilities",
+        "types": {
+          "SP42_1": {
+            "id": "SP42_1",
+            "title": "R&M of Chapel Facility"
+          },
+          "SP42_2": {
+            "id": "SP42_2",
+            "title": "R&M of Transient Facility"
+          }
+        }
+      },
+      "SP43": {
+        "id": "SP43",
+        "title": "Maintenance of Base Utilities",
+        "types": {
+          "SP43_1": {
+            "id": "SP43_1",
+            "title": "Payment for Light Expenses"
+          },
+          "SP43_2": {
+            "id": "SP43_2",
+            "title": "Payment for Water Expenses"
+          },
+          "SP43_3": {
+            "id": "SP43_3",
+            "title": "Payment for the Insurance of Buildings"
+          },
+          "SP43_4": {
+            "id": "SP43_4",
+            "title": "Subscription of Communications Services (Landline)"
+          },
+          "SP43_5": {
+            "id": "SP43_5",
+            "title": "Subscription of Communications Services (Mobile)"
+          },
+          "SP43_6": {
+            "id": "SP43_6",
+            "title": "Subscription of VSAT Services"
+          },
+          "SP43_7": {
+            "id": "SP43_7",
+            "title": "Subscription of Internet Services"
+          },
+          "SP43_8": {
+            "id": "SP43_8",
+            "title": "Subscription of Cable Expenses"
+          },
+          "SP43_9": {
+            "id": "SP43_9",
+            "title": "Other Subscription Expenses (Newspapers, Magazines, etc)"
+          },
+          "SP43_10": {
+            "id": "SP43_10",
+            "title": "Lot Rental"
+          }
+        }
+      },
+      "SP44": {
+        "id": "SP44",
+        "title": "Real Estate Management Program",
+        "types": {
+          "SP44_1": {
+            "id": "SP44_1",
+            "title": "Survey of Military Reservation"
+          }
+        }
+      }
+    }
+  },
+  "MP09": {
+    "id": "MP09",
+    "title": "Human Resource Management Program",
+    "types": {
+      "SP45": {
+        "id": "SP45",
+        "title": "Morale and Welfare Program",
+        "types": {
+          "SP45_1": {
+            "id": "SP45_1",
+            "title": "Military Livelihood Education (MILE)"
+          },
+          "SP45_2": {
+            "id": "SP45_2",
+            "title": "Military Values Education (MILVED)"
+          },
+          "SP45_3": {
+            "id": "SP45_3",
+            "title": "Team Building Activities"
+          },
+          "SP45_4": {
+            "id": "SP45_4",
+            "title": "Sport Activities"
+          },
+          "SP45_5": {
+            "id": "SP45_5",
+            "title": "Awarding Ceremonies"
+          },
+          "SP45_6": {
+            "id": "SP45_6",
+            "title": "Socials"
+          },
+          "SP45_7": {
+            "id": "SP45_7",
+            "title": "Rest and Recreation (R&R)"
+          },
+          "SP45_8": {
+            "id": "SP45_8",
+            "title": "Donning of Ranks"
+          },
+          "SP45_9": {
+            "id": "SP45_9",
+            "title": "Retirement Ceremonies"
+          },
+          "SP45_10": {
+            "id": "SP45_10",
+            "title": "Other Allowances"
+          }
+        }
+      },
+      "SP46": {
+        "id": "SP46",
+        "title": "Discipline, Law and Order Program",
+        "types": {
+          "SP46_1": {
+            "id": "SP46_1",
+            "title": "DLO Advocacy Activities"
+          },
+          "SP46_2": {
+            "id": "SP46_2",
+            "title": "Legal Services"
+          },
+          "SP46_3": {
+            "id": "SP46_3",
+            "title": "Management of Holding Center"
+          },
+          "SP46_4": {
+            "id": "SP46_4",
+            "title": "Support to Legal Retainers"
+          }
+        }
+      },
+      "SP47": {
+        "id": "SP47",
+        "title": "Career Management Program",
+        "types": {
+          "SP47_1": {
+            "id": "SP47_1",
+            "title": "Attrition Activities"
+          },
+          "SP47_2": {
+            "id": "SP47_2",
+            "title": "Promotion Activities"
+          },
+          "SP47_3": {
+            "id": "SP47_3",
+            "title": "Placement Activities"
+          }
+        }
+      },
+      "SP48": {
+        "id": "SP48",
+        "title": "Gender Mainstreaming Program",
+        "types": {
+          "SP48_1": {
+            "id": "SP48_1",
+            "title": "Gender Education Activities"
+          },
+          "SP48_2": {
+            "id": "SP48_2",
+            "title": "Strengthening GFPS"
+          },
+          "SP48_3": {
+            "id": "SP48_3",
+            "title": "Gender Mainstreaming Review & Evaluation"
+          },
+          "SP48_4": {
+            "id": "SP48_4",
+            "title": "GAD Advocacy Activities"
+          }
+        }
+      }
+    }
+  },
+  "MP10": {
+    "id": "MP10",
+    "title": "Combat Casualty Treatment Program",
+    "types": {
+      "SP49": {
+        "id": "SP49",
+        "title": "Combat Casualty Treatment Program",
+        "types": {
+          "SP49_1": {
+            "id": "SP49_1",
+            "title": "Sustainment of Individual First Aid Kit (IFAK)"
+          },
+          "SP49_2": {
+            "id": "SP49_2",
+            "title": "Sustainment of CLS Kits"
+          },
+          "SP49_3": {
+            "id": "SP49_3",
+            "title": "Evacuation Management of Patients"
+          },
+          "SP49_4": {
+            "id": "SP49_4",
+            "title": "Treatment & Trauma Management"
+          }
+        }
+      }
+    }
+  },
+  "MP11": {
+    "id": "MP11",
+    "title": "Support To Ground Operations",
+    "types": {
+      "SP50": {
+        "id": "SP50",
+        "title": "Support to Combat Operations",
+        "types": {
+          "SP50_1": {
+            "id": "SP50_1",
+            "title": "Division Operations"
+          },
+          "SP50_2": {
+            "id": "SP50_2",
+            "title": "Brigade Operations"
+          },
+          "SP50_3": {
+            "id": "SP50_3",
+            "title": "Battalion Operations"
+          },
+          "SP50_4": {
+            "id": "SP50_4",
+            "title": "Company Operations"
+          },
+          "SP50_5": {
+            "id": "SP50_5",
+            "title": "Small Unit Operations"
+          }
+        }
+      },
+      "SP51": {
+        "id": "SP51",
+        "title": "Support to Intelligence Operations",
+        "types": {
+          "SP51_1": {
+            "id": "SP51_1",
+            "title": "Intelligence Planning"
+          },
+          "SP51_2": {
+            "id": "SP51_2",
+            "title": "Intelligence Collection"
+          },
+          "SP51_3": {
+            "id": "SP51_3",
+            "title": "Intelligence Processing and Dissemination"
+          },
+          "SP51_4": {
+            "id": "SP51_4",
+            "title": "Force Protection"
+          },
+          "SP51_5": {
+            "id": "SP51_5",
+            "title": "Legal Offensive"
+          }
+        }
+      },
+      "SP52": {
+        "id": "SP52",
+        "title": "Support to CMO Operations",
+        "types": {
+          "SP52_1": {
+            "id": "SP52_1",
+            "title": "Support to Civil Affairs"
+          },
+          "SP52_2": {
+            "id": "SP52_2",
+            "title": "Support to Public Affairs"
+          },
+          "SP52_3": {
+            "id": "SP52_3",
+            "title": "Support to Information Support Affairs"
+          }
+        }
+      },
+      "SP53": {
+        "id": "SP53",
+        "title": "Support to Information Operations",
+        "types": {
+          "SP53_1": {
+            "id": "SP53_1",
+            "title": "Information Operations Coordinating Cell (IOCC) Activities"
+          }
+        }
+      },
+      "SP54": {
+        "id": "SP54",
+        "title": "Support to Signal Operations",
+        "types": {
+          "SP54_1": {
+            "id": "SP54_1",
+            "title": "Support to Communications System Support Operations"
+          },
+          "SP54_2": {
+            "id": "SP54_2",
+            "title": "Support to Electronic Support Operations"
+          },
+          "SP54_3": {
+            "id": "SP54_3",
+            "title": "Support to Information System Support Operations"
+          },
+          "SP54_4": {
+            "id": "SP54_4",
+            "title": "Support to Cyber Support Operations"
+          }
+        }
+      },
+      "SP55": {
+        "id": "SP55",
+        "title": "Support to CAA Operations",
+        "types": {
+          "SP55_1": {
+            "id": "SP55_1",
+            "title": "Support to CAA Admin Operations"
+          },
+          "SP55_2": {
+            "id": "SP55_2",
+            "title": "CAA Pre-Entry Processing"
+          },
+          "SP55_3": {
+            "id": "SP55_3",
+            "title": "Enhancement of CAA Unit Command and Control"
+          },
+          "SP55_4": {
+            "id": "SP55_4",
+            "title": "Enhancement of CAA Unit Communication"
+          },
+          "SP55_5": {
+            "id": "SP55_5",
+            "title": "Strengthening of CAA Patrol Bases Defenses"
+          },
+          "SP55_6": {
+            "id": "SP55_6",
+            "title": "Troop Hutment Support for CAA Detachment"
+          },
+          "SP55_7": {
+            "id": "SP55_7",
+            "title": "CAA Readiness"
+          }
+        }
+      },
+      "SP56": {
+        "id": "SP56",
+        "title": "Support to Engineer Operations",
+        "types": {
+          "SP56_1": {
+            "id": "SP56_1",
+            "title": "Support to Mobility Operations"
+          },
+          "SP56_2": {
+            "id": "SP56_2",
+            "title": "Support Counter-Mobility Operations"
+          },
+          "SP56_3": {
+            "id": "SP56_3",
+            "title": "Support to Survivability Operations"
+          },
+          "SP56_4": {
+            "id": "SP56_4",
+            "title": "Support to General Engineering Operations"
+          }
+        }
+      },
+      "SP57": {
+        "id": "SP57",
+        "title": "Support to Artillery Operations",
+        "types": {
+          "SP57_1": {
+            "id": "SP57_1",
+            "title": "RSOP"
+          },
+          "SP57_2": {
+            "id": "SP57_2",
+            "title": "Munition Handling and Management"
+          },
+          "SP57_3": {
+            "id": "SP57_3",
+            "title": "Fire Direction Center Operation"
+          },
+          "SP57_4": {
+            "id": "SP57_4",
+            "title": "Firing Battery Operation"
+          },
+          "SP57_5": {
+            "id": "SP57_5",
+            "title": "Support to Deep Fires"
+          },
+          "SP57_6": {
+            "id": "SP57_6",
+            "title": "Support to Close Fires"
+          },
+          "SP57_7": {
+            "id": "SP57_7",
+            "title": "Support to Counter Battery Fires"
+          },
+          "SP57_8": {
+            "id": "SP57_8",
+            "title": "Support to Combined and Joint Fires"
+          },
+          "SP57_9": {
+            "id": "SP57_9",
+            "title": "Support to Targeting"
+          }
+        }
+      },
+      "SP58": {
+        "id": "SP58",
+        "title": "Support to Special Operations",
+        "types": {
+          "SP58_1": {
+            "id": "SP58_1",
+            "title": "Support to Riverine Operations"
+          },
+          "SP58_2": {
+            "id": "SP58_2",
+            "title": "Support to Target Interdiction"
+          },
+          "SP58_3": {
+            "id": "SP58_3",
+            "title": "Special Reconnaissance"
+          },
+          "SP58_4": {
+            "id": "SP58_4",
+            "title": "Support to Mass Base Operations"
+          },
+          "SP58_5": {
+            "id": "SP58_5",
+            "title": "Support to MOUT Operations"
+          },
+          "SP58_6": {
+            "id": "SP58_6",
+            "title": "Support to Airborne Operations"
+          },
+          "SP58_7": {
+            "id": "SP58_7",
+            "title": "Support to Direct Action/Strike Operations"
+          }
+        }
+      },
+      "SP59": {
+        "id": "SP59",
+        "title": "Support to Mechanized Operations",
+        "types": {
+          "SP59_1": {
+            "id": "SP59_1",
+            "title": "Support to Mechanized Operations"
+          }
+        }
+      },
+      "SP60": {
+        "id": "SP60",
+        "title": "Support to EOD Operations",
+        "types": {
+          "SP60_1": {
+            "id": "SP60_1",
+            "title": "Support to EOD Operations"
+          },
+          "SP60_2": {
+            "id": "SP60_2",
+            "title": "Support to Unexploded Ordnance Disposal"
+          },
+          "SP60_3": {
+            "id": "SP60_3",
+            "title": "Support to Counter Improvised Explosive Device Operations"
+          },
+          "SP60_4": {
+            "id": "SP60_4",
+            "title": "Support to ammunition surveillance and inspection"
+          },
+          "SP60_5": {
+            "id": "SP60_5",
+            "title": "Support to explosive demolition operations"
+          },
+          "SP60_6": {
+            "id": "SP60_6",
+            "title": "Support to Explosive Device and Unexploded Explosive Ordnance Protection Operations"
+          },
+          "SP60_7": {
+            "id": "SP60_7",
+            "title": "EOD Sustainment Support"
+          }
+        }
+      },
+      "SP61": {
+        "id": "SP61",
+        "title": "Support to CBRN Operations",
+        "types": {
+          "SP61_1": {
+            "id": "SP61_1",
+            "title": "Support to CBRN Reconnaissance Operations"
+          },
+          "SP61_2": {
+            "id": "SP61_2",
+            "title": "Support to Detection, Identification and Containment of CBRN"
+          },
+          "SP61_3": {
+            "id": "SP61_3",
+            "title": "Support to CBRN Defense"
+          },
+          "SP61_4": {
+            "id": "SP61_4",
+            "title": "Support to CBRN Consequence Management"
+          },
+          "SP61_5": {
+            "id": "SP61_5",
+            "title": "Support to CBRN Technical Expertise"
+          }
+        }
+      },
+      "SP62": {
+        "id": "SP62",
+        "title": "Support to Peace and Development Operations",
+        "types": {
+          "SP62_1": {
+            "id": "SP62_1",
+            "title": "Community Support Program"
+          }
+        }
+      },
+      "SP63": {
+        "id": "SP63",
+        "title": "Support to Combating Terrorism Operations",
+        "types": {
+          "SP63_1": {
+            "id": "SP63_1",
+            "title": "Preventing and Countering Violent Extremism (PCVE)"
+          }
+        }
+      },
+      "SP64": {
+        "id": "SP64",
+        "title": "Support to Opeational Enhancement of Units",
+        "types": {
+          "SP64_1": {
+            "id": "SP64_1",
+            "title": "Troop Deployment Support"
+          },
+          "SP64_2": {
+            "id": "SP64_2",
+            "title": "Troop Hutment Support"
+          },
+          "SP64_3": {
+            "id": "SP64_3",
+            "title": "Operational Testing of Units/Test Mission"
+          },
+          "SP64_4": {
+            "id": "SP64_4",
+            "title": "Operational Enhancement Support"
+          },
+          "SP64_5": {
+            "id": "SP64_5",
+            "title": "Unit Operational Capability Requirements"
+          },
+          "SP64_6": {
+            "id": "SP64_6",
+            "title": "Spt to Administrative & Operational Activities of Subordinate Units (APF)"
+          },
+          "SP64_7": {
+            "id": "SP64_7",
+            "title": "Spt to Administrative & Operational Activities of OPCON Non-Organic Units (APF)"
+          }
+        }
+      }
+    }
+  },
+  "MP12": {
+    "id": "MP12",
+    "title": "Support to Reservist and Retiree Affairs (RRA) Program",
+    "types": {
+      "SP65": {
+        "id": "SP65",
+        "title": "Support to ROTC Program",
+        "types": {
+          "SP65_1": {
+            "id": "SP65_1",
+            "title": "ROTC Activities"
+          }
+        }
+      },
+      "SP66": {
+        "id": "SP66",
+        "title": "Support to Retiree Affairs",
+        "types": {
+          "SP66_1": {
+            "id": "SP66_1",
+            "title": "Retiree Affairs"
+          }
+        }
+      },
+      "SP67": {
+        "id": "SP67",
+        "title": "Support to Reservist Program",
+        "types": {
+          "SP67_1": {
+            "id": "SP67_1",
+            "title": "Reservist Activities"
+          }
+        }
+      }
+    }
+  },
+  "MP13": {
+    "id": "MP13",
+    "title": "Support to HADR Program",
+    "types": {
+      "SP68": {
+        "id": "SP68",
+        "title": "Disaster Prevention and Mitigation",
+        "types": {
+          "SP68_1": {
+            "id": "SP68_1",
+            "title": "Disaster Mitigation Activities"
+          },
+          "SP68_2": {
+            "id": "SP68_2",
+            "title": "Coordination with the Office of Civil Defense"
+          },
+          "SP68_3": {
+            "id": "SP68_3",
+            "title": "Coordination/Meetings with Disaster Risk Reduction Management Council (DRRMC)"
+          }
+        }
+      },
+      "SP69": {
+        "id": "SP69",
+        "title": "Disaster Preparedness and Readiness",
+        "types": {
+          "SP69_1": {
+            "id": "SP69_1",
+            "title": "Disaster Drill/Rehearsal"
+          },
+          "SP69_2": {
+            "id": "SP69_2",
+            "title": "HADR Planning, Supervision and Control"
+          }
+        }
+      },
+      "SP70": {
+        "id": "SP70",
+        "title": "Search, Rescue and Retrieval Operations",
+        "types": {
+          "SP70_1": {
+            "id": "SP70_1",
+            "title": "Deployment of DRUs"
+          },
+          "SP70_2": {
+            "id": "SP70_2",
+            "title": "Search and Rescue Operations"
+          },
+          "SP70_3": {
+            "id": "SP70_3",
+            "title": "Retrieval Operations"
+          }
+        }
+      },
+      "SP71": {
+        "id": "SP71",
+        "title": "Disaster Rehabilitation and Recovery",
+        "types": {
+          "SP71_1": {
+            "id": "SP71_1",
+            "title": "Relief Operations"
+          },
+          "SP71_2": {
+            "id": "SP71_2",
+            "title": "Support to Disaster Recovery and Rehabilitation"
+          }
+        }
+      }
+    }
+  },
+  "MP14": {
+    "id": "MP14",
+    "title": "Support to National Development Program",
+    "types": {
+      "SP72": {
+        "id": "SP72",
+        "title": "Support to Law Enforcement Operations",
+        "types": {
+          "SP72_1": {
+            "id": "SP72_1",
+            "title": "Support to Anti-Illegal Drug Campaign"
+          },
+          "SP72_2": {
+            "id": "SP72_2",
+            "title": "Support to PNP Operations"
+          },
+          "SP72_3": {
+            "id": "SP72_3",
+            "title": "Support to other Law Enforcement Operations"
+          },
+          "SP72_4": {
+            "id": "SP72_4",
+            "title": "Inter-Agency Security Operations"
+          },
+          "SP72_5": {
+            "id": "SP72_5",
+            "title": "Support to Legal Cooperation (SLEO)"
+          }
+        }
+      },
+      "SP73": {
+        "id": "SP73",
+        "title": "Support to National Development",
+        "types": {
+          "SP73_1": {
+            "id": "SP73_1",
+            "title": "Community Development Activities"
+          },
+          "SP73_2": {
+            "id": "SP73_2",
+            "title": "Socio-Economic Assistance"
+          },
+          "SP73_3": {
+            "id": "SP73_3",
+            "title": "Community Livelihood Programs"
+          },
+          "SP73_4": {
+            "id": "SP73_4",
+            "title": "Support to PAMANA Projects"
+          },
+          "SP73_5": {
+            "id": "SP73_5",
+            "title": "Security to Infrastructures and other Developmental Projects"
+          }
+        }
+      },
+      "SP74": {
+        "id": "SP74",
+        "title": "Support to Environmental Protection",
+        "types": {
+          "SP74_1": {
+            "id": "SP74_1",
+            "title": "Anti-Illegal Logging Operations"
+          },
+          "SP74_2": {
+            "id": "SP74_2",
+            "title": "Clean and Green Programs"
+          },
+          "SP74_3": {
+            "id": "SP74_3",
+            "title": "Support to Agro-Forest Programs"
+          },
+          "SP74_4": {
+            "id": "SP74_4",
+            "title": "Tree Planting Activity"
+          },
+          "SP74_5": {
+            "id": "SP74_5",
+            "title": "Waste Disposal and Management"
+          }
+        }
+      },
+      "SP75": {
+        "id": "SP75",
+        "title": "Stakeholders Engagement",
+        "types": {
+          "SP75_1": {
+            "id": "SP75_1",
+            "title": "Engagements of Consultants"
+          },
+          "SP75_2": {
+            "id": "SP75_2",
+            "title": "Participation in Public Governance Fora"
+          },
+          "SP75_3": {
+            "id": "SP75_3",
+            "title": "Attendance to Peace & Order Meetings"
+          },
+          "SP75_4": {
+            "id": "SP75_4",
+            "title": "Attendance to Development Council Meetings"
+          }
+        }
+      }
+    }
+  },
+  "MP15": {
+    "id": "MP15",
+    "title": "Army Diplomacy Program",
+    "types": {
+      "SP76": {
+        "id": "SP76",
+        "title": "Joint Training Exercises and Subject Matter Expert Exchanges",
+        "types": {
+          "SP76_1": {
+            "id": "SP76_1",
+            "title": "Subject Matter Expert Exchange"
+          },
+          "SP76_2": {
+            "id": "SP76_2",
+            "title": "ADMM EWG on HADR"
+          },
+          "SP76_3": {
+            "id": "SP76_3",
+            "title": "ADMM EWG Planning Conference on PKO"
+          },
+          "SP76_4": {
+            "id": "SP76_4",
+            "title": "ADMM Maritime Security and Counter-Terrorism Exercise"
+          },
+          "SP76_5": {
+            "id": "SP76_5",
+            "title": "Support to CIED/EOD SMEE"
+          },
+          "SP76_6": {
+            "id": "SP76_6",
+            "title": "CBRN Training"
+          },
+          "SP76_7": {
+            "id": "SP76_7",
+            "title": "HADR SMEE"
+          },
+          "SP76_8": {
+            "id": "SP76_8",
+            "title": "Combat Engineer SMEE"
+          },
+          "SP76_9": {
+            "id": "SP76_9",
+            "title": "HADR Exercise/Training"
+          },
+          "SP76_10": {
+            "id": "SP76_10",
+            "title": "Support to INSARAG Activities"
+          },
+          "SP76_11": {
+            "id": "SP76_11",
+            "title": "Army Competition"
+          }
+        }
+      },
+      "SP77": {
+        "id": "SP77",
+        "title": "High Level Exchange Visits",
+        "types": {
+          "SP77_1": {
+            "id": "SP77_1",
+            "title": "Hosting of Foreign Army Dignitaries"
+          },
+          "SP77_2": {
+            "id": "SP77_2",
+            "title": "Visits of Foreign Armies (Outbound)"
+          },
+          "SP77_3": {
+            "id": "SP77_3",
+            "title": "Defense Exhibits and Conference"
+          },
+          "SP77_4": {
+            "id": "SP77_4",
+            "title": "Visit to Foreign Defense Industries/Facilities"
+          }
+        }
+      },
+      "SP78": {
+        "id": "SP78",
+        "title": "Army To Army Working Group Activities",
+        "types": {
+          "SP78_1": {
+            "id": "SP78_1",
+            "title": "Hosting of/Attendance to Army to Army Working Group Engagement"
+          }
+        }
+      },
+      "SP79": {
+        "id": "SP79",
+        "title": "Peace Support Operations",
+        "types": {
+          "SP79_1": {
+            "id": "SP79_1",
+            "title": "Pre-Deployment Support"
+          },
+          "SP79_2": {
+            "id": "SP79_2",
+            "title": "PSO Planning and Policy making"
+          }
+        }
+      },
+      "SP80": {
+        "id": "SP80",
+        "title": "Foreign Military Courses Training",
+        "types": {
+          "SP80_1": {
+            "id": "SP80_1",
+            "title": "Foreign Military Schooling"
+          }
+        }
+      },
+      "SP81": {
+        "id": "SP81",
+        "title": "Other IDSE",
+        "types": {
+          "SP81_1": {
+            "id": "SP81_1",
+            "title": "Other IDSE"
+          }
+        }
+      }
+    }
+  },
+  "MP16": {
+    "id": "MP16",
+    "title": "Army Strategy Management Activities",
+    "types": {
+      "SP82": {
+        "id": "SP82",
+        "title": "Strategic Planning",
+        "types": {
+          "SP82_1": {
+            "id": "SP82_1",
+            "title": "Strategy Development"
+          },
+          "SP82_2": {
+            "id": "SP82_2",
+            "title": "Strategy Refresh"
+          }
+        }
+      },
+      "SP83": {
+        "id": "SP83",
+        "title": "Organizational Development Planning",
+        "types": {
+          "SP83_1": {
+            "id": "SP83_1",
+            "title": "Strategy Management Training"
+          },
+          "SP83_2": {
+            "id": "SP83_2",
+            "title": "ISO Certification"
+          },
+          "SP83_3": {
+            "id": "SP83_3",
+            "title": "Army Governance Pathway Implementation"
+          },
+          "SP83_4": {
+            "id": "SP83_4",
+            "title": "Project Management Training"
+          },
+          "SP83_5": {
+            "id": "SP83_5",
+            "title": "Systems Improvement"
+          },
+          "SP83_6": {
+            "id": "SP83_6",
+            "title": "2L-Capacity Enhancement"
+          }
+        }
+      },
+      "SP84": {
+        "id": "SP84",
+        "title": "Strategic Program Execution and Monitoring",
+        "types": {
+          "SP84_1": {
+            "id": "SP84_1",
+            "title": "Performance Management"
+          },
+          "SP84_2": {
+            "id": "SP84_2",
+            "title": "GSMO Audit"
+          },
+          "SP84_3": {
+            "id": "SP84_3",
+            "title": "ISO Surveillance Audit"
+          },
+          "SP84_4": {
+            "id": "SP84_4",
+            "title": "Management of Office Initiative"
+          },
+          "SP84_5": {
+            "id": "SP84_5",
+            "title": "Management of Unit Initiative"
+          },
+          "SP84_6": {
+            "id": "SP84_6",
+            "title": "Performance Scorecard Management Information System (i-Perform)"
+          },
+          "SP84_7": {
+            "id": "SP84_7",
+            "title": "Programs Review"
+          },
+          "SP84_8": {
+            "id": "SP84_8",
+            "title": "On-Site Document Pre-Audit"
+          }
+        }
+      },
+      "SP85": {
+        "id": "SP85",
+        "title": "Performance Review and Assessment",
+        "types": {
+          "SP85_1": {
+            "id": "SP85_1",
+            "title": "Compliance Audits/Maturity Model"
+          },
+          "SP85_2": {
+            "id": "SP85_2",
+            "title": "ATR Strategy Evaluation"
+          },
+          "SP85_3": {
+            "id": "SP85_3",
+            "title": "Scorecard Management"
+          },
+          "SP85_4": {
+            "id": "SP85_4",
+            "title": "ATR Program Assessment"
+          },
+          "SP85_5": {
+            "id": "SP85_5",
+            "title": "ATR Strategy Review"
+          },
+          "SP85_6": {
+            "id": "SP85_6",
+            "title": "PA SMS Review/Validation"
+          }
+        }
+      },
+      "SP86": {
+        "id": "SP86",
+        "title": "Strategic Communication",
+        "types": {
+          "SP86_1": {
+            "id": "SP86_1",
+            "title": "Communicating the ATR"
+          },
+          "SP86_2": {
+            "id": "SP86_2",
+            "title": "Multi-Sector Advisory Board (MSAB) Activity"
+          },
+          "SP86_3": {
+            "id": "SP86_3",
+            "title": "Governance Forum"
+          },
+          "SP86_4": {
+            "id": "SP86_4",
+            "title": "Governance Lecture Series"
+          },
+          "SP86_5": {
+            "id": "SP86_5",
+            "title": "ATR Training/Cascading"
+          },
+          "SP86_6": {
+            "id": "SP86_6",
+            "title": "ATR Publication"
+          }
+        }
+      }
+    }
+  },
+  "MP17": {
+    "id": "MP17",
+    "title": "Logistics Management Program",
+    "types": {
+      "SP87": {
+        "id": "SP87",
+        "title": "Logistics Support Operations",
+        "types": {
+          "SP87_1": {
+            "id": "SP87_1",
+            "title": "Support to Bidding & Procurement Activities"
+          },
+          "SP87_2": {
+            "id": "SP87_2",
+            "title": "Warehouse/Storage Management"
+          },
+          "SP87_3": {
+            "id": "SP87_3",
+            "title": "Inventory Management Activities"
+          },
+          "SP87_4": {
+            "id": "SP87_4",
+            "title": "Distribution/Transportation Management Activities"
+          },
+          "SP87_5": {
+            "id": "SP87_5",
+            "title": "Disposal Management Activities"
+          },
+          "SP87_6": {
+            "id": "SP87_6",
+            "title": "Support to Commodity Managers"
+          },
+          "SP87_7": {
+            "id": "SP87_7",
+            "title": "Support to PCHT"
+          },
+          "SP87_8": {
+            "id": "SP87_8",
+            "title": "Support to Mortuary Services"
+          },
+          "SP87_9": {
+            "id": "SP87_9",
+            "title": "Support for Laundry Services"
+          },
+          "SP87_10": {
+            "id": "SP87_10",
+            "title": "Janitorial Services "
+          },
+          "SP87_11": {
+            "id": "SP87_11",
+            "title": "PA Utility Work Force"
+          }
+        }
+      }
+    }
+  },
+  "MP18": {
+    "id": "MP18",
+    "title": "Health Service Management Program",
+    "types": {
+      "SP88": {
+        "id": "SP88",
+        "title": "Health Enhancement Program",
+        "types": {
+          "SP88_1": {
+            "id": "SP88_1",
+            "title": "Wellness Program"
+          },
+          "SP88_2": {
+            "id": "SP88_2",
+            "title": "Physical Fitness Program"
+          }
+        }
+      },
+      "SP89": {
+        "id": "SP89",
+        "title": "Medical and Dental Health Programs",
+        "types": {
+          "SP89_1": {
+            "id": "SP89_1",
+            "title": "Procurement of Drugs & Medicine"
+          },
+          "SP89_2": {
+            "id": "SP89_2",
+            "title": "Procurement of Medical Supplies"
+          },
+          "SP89_3": {
+            "id": "SP89_3",
+            "title": "Procurement of Dental Supplies"
+          },
+          "SP89_4": {
+            "id": "SP89_4",
+            "title": "Support to Physical & Medical Examinations"
+          },
+          "SP89_5": {
+            "id": "SP89_5",
+            "title": "Conduct of Medical & Dental Check-up"
+          },
+          "SP89_6": {
+            "id": "SP89_6",
+            "title": "Medical Referral & Treatment"
+          },
+          "SP89_7": {
+            "id": "SP89_7",
+            "title": "Support to RHE Program"
+          },
+          "SP89_8": {
+            "id": "SP89_8",
+            "title": "Support to Medical/Dental Retainers"
+          }
+        }
+      }
+    }
+  },
+  "MP19": {
+    "id": "MP19",
+    "title": "C4S- Management Program",
+    "types": {
+      "SP90": {
+        "id": "SP90",
+        "title": "Support to Information Systems Management",
+        "types": {
+          "SP90_1": {
+            "id": "SP90_1",
+            "title": "Support to PA Software as a Service (SaaS)/ Platform as a Service (PaaS)"
+          },
+          "SP90_2": {
+            "id": "SP90_2",
+            "title": "Support to PA Internet Bills"
+          },
+          "SP90_3": {
+            "id": "SP90_3",
+            "title": "Support to PA Internet Web Hosting"
+          },
+          "SP90_4": {
+            "id": "SP90_4",
+            "title": "Support to PA DNS Registration"
+          },
+          "SP90_5": {
+            "id": "SP90_5",
+            "title": "Support to PA Email Support Services Subscription"
+          }
+        }
+      }
+    }
+  },
+  "MP20": {
+    "id": "MP20",
+    "title": "Command & Management",
+    "types": {
+      "SP91": {
+        "id": "SP91",
+        "title": "Unit/Office Administration",
+        "types": {
+          "SP91_1": {
+            "id": "SP91_1",
+            "title": "Command Conference"
+          },
+          "SP91_2": {
+            "id": "SP91_2",
+            "title": "Functional Staff Conference"
+          },
+          "SP91_3": {
+            "id": "SP91_3",
+            "title": "Inter Office Conferences"
+          },
+          "SP91_4": {
+            "id": "SP91_4",
+            "title": "Support to Unit/Office Administration"
+          }
+        }
+      },
+      "SP92": {
+        "id": "SP92",
+        "title": "Commemoration Activities",
+        "types": {
+          "SP92_1": {
+            "id": "SP92_1",
+            "title": "Participation to AFP Wide Activities"
+          },
+          "SP92_2": {
+            "id": "SP92_2",
+            "title": "Participation to National Events"
+          },
+          "SP92_3": {
+            "id": "SP92_3",
+            "title": "Participation to PA Wide Celebration"
+          },
+          "SP92_4": {
+            "id": "SP92_4",
+            "title": "Anniversary Celebration"
+          }
+        }
+      },
+      "SP93": {
+        "id": "SP93",
+        "title": "Troop/Unit Visitation",
+        "types": {
+          "SP93_1": {
+            "id": "SP93_1",
+            "title": "Commander's Visit"
+          },
+          "SP93_2": {
+            "id": "SP93_2",
+            "title": "Staff Visit"
+          },
+          "SP93_3": {
+            "id": "SP93_3",
+            "title": "Unit Preparation (Receiving Visitors)"
+          }
+        }
+      },
+      "SP94": {
+        "id": "SP94",
+        "title": "Ceremonies",
+        "types": {
+          "SP94_1": {
+            "id": "SP94_1",
+            "title": "Change of Command/Chief of Office"
+          },
+          "SP94_2": {
+            "id": "SP94_2",
+            "title": "Testimonial Parade/Honor"
+          },
+          "SP94_3": {
+            "id": "SP94_3",
+            "title": "Send-off Ceremony"
+          },
+          "SP94_4": {
+            "id": "SP94_4",
+            "title": "Wreathlaying Ceremony"
+          },
+          "SP94_5": {
+            "id": "SP94_5",
+            "title": "Funeral Honor and Services"
+          },
+          "SP94_6": {
+            "id": "SP94_6",
+            "title": "Other Military Ceremonies"
+          }
+        }
+      }
+    }
+  },
+  "MP21": {
+    "id": "MP21",
+    "title": "Financial Resource Management",
+    "types": {
+      "SP95": {
+        "id": "SP95",
+        "title": "Budget Development Program",
+        "types": {
+          "SP95_1": {
+            "id": "SP95_1",
+            "title": "Programs and Budget Development Guidance Formulation"
+          },
+          "SP95_2": {
+            "id": "SP95_2",
+            "title": "Resource Management Forum (RMF)"
+          },
+          "SP95_3": {
+            "id": "SP95_3",
+            "title": "PA Budget Development"
+          },
+          "SP95_4": {
+            "id": "SP95_4",
+            "title": "Annual Plan & Budget (APB) Development"
+          },
+          "SP95_5": {
+            "id": "SP95_5",
+            "title": "Annual Procurement Plan (APP) Development"
+          },
+          "SP95_6": {
+            "id": "SP95_6",
+            "title": "GAD Plan & Budget (GPB) Development"
+          }
+        }
+      },
+      "SP96": {
+        "id": "SP96",
+        "title": "Fiscal Management",
+        "types": {
+          "SP96_1": {
+            "id": "SP96_1",
+            "title": "Fiscal Operations"
+          },
+          "SP96_2": {
+            "id": "SP96_2",
+            "title": "Fiscal Control of Financial Transactions"
+          },
+          "SP96_3": {
+            "id": "SP96_3",
+            "title": "Fiscal Policy Development"
+          }
+        }
+      },
+      "SP97": {
+        "id": "SP97",
+        "title": "Financial Records Management",
+        "types": {
+          "SP97_1": {
+            "id": "SP97_1",
+            "title": "Recording and Reporting of Financial Transactions"
+          },
+          "SP97_2": {
+            "id": "SP97_2",
+            "title": "Payment of Bond Premium"
+          }
+        }
+      },
+      "SP98": {
+        "id": "SP98",
+        "title": "Budget Execution Review",
+        "types": {
+          "SP98_1": {
+            "id": "SP98_1",
+            "title": "Monitoring and Evaluation of Funds"
+          },
+          "SP98_2": {
+            "id": "SP98_2",
+            "title": "Program Performance and Budget Execution Review (PPBER)"
+          },
+          "SP98_3": {
+            "id": "SP98_3",
+            "title": "Budget Execution Process Review (BEPR)"
+          }
+        }
+      }
+    }
+  },
+  "MP22": {
+    "id": "MP22",
+    "title": "Internal Audit & Inspection",
+    "types": {
+      "SP99": {
+        "id": "SP99",
+        "title": "Support to Audit and Inspection",
+        "types": {
+          "SP99_1": {
+            "id": "SP99_1",
+            "title": "Annual General Inspection"
+          },
+          "SP99_2": {
+            "id": "SP99_2",
+            "title": "Pre Annual General Inspection"
+          },
+          "SP99_3": {
+            "id": "SP99_3",
+            "title": "Terminal Audit"
+          },
+          "SP99_4": {
+            "id": "SP99_4",
+            "title": "Special Audit"
+          },
+          "SP99_5": {
+            "id": "SP99_5",
+            "title": "Management Audit"
+          }
+        }
+      }
+    }
+  }
+}

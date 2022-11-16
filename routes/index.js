@@ -153,7 +153,10 @@ router.get('/edit/:staff/:id', (req, res) => {
 	res.send(`
 		${top(req.params.staff)}
 		<div class="card shadow-sm">
-			<div class="card-header bg-success text-light">Add New Record</div>
+			<div class="card-header bg-success text-light d-flex w-100 justify-content-between">
+				<span>Edit Record</span>
+				<span><a href="/records/${req.params.staff}" class="btn btn-sm btn-secondary outlined"><small>Back</small></a></span>
+			</div>
 			<div class="card-body">
 				${hidden('staff', req.params.staff)}
 				${hidden('type', 'activities')}
