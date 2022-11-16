@@ -1,21 +1,21 @@
 var express = require('express');
 var router = express.Router();
-
-// Helpers
+// Storage
 var db = require('../storage');
 var hierarchy = require('../hierarchy');
+// Helpers
 var top = require('../helpers/top');
+var footer = require('../helpers/footer');
 var bottom = require('../helpers/bottom');
 var clientSocket = require('../helpers/clientSocket');
 var swals = require('../helpers/swals');
 var closing = require('../helpers/closing');
-
 // Form Elements
-var textInput = require('../helpers/formelements/textInput'), select = require('../helpers/formelements/select'), datePicker = require('../helpers/formelements/datePicker'), amountInput = require('../helpers/formelements/amountInput'), submitBtn = require('../helpers/formelements/submitBtn'), hidden = require('../helpers/formelements/hidden'), pwdInput = require('../helpers/formelements/pwdInput');file = require('../helpers/formelements/file'), validateAndSend = require('../helpers/formelements/validateAndSend'), validateAndEdit = require('../helpers/formelements/validateAndEdit');
+var textInput = require('../helpers/formelements/textInput'), select = require('../helpers/formelements/select'), datePicker = require('../helpers/formelements/datePicker'), amountInput = require('../helpers/formelements/amountInput'), submitBtn = require('../helpers/formelements/submitBtn'), hidden = require('../helpers/formelements/hidden'), pwdInput = require('../helpers/formelements/pwdInput'), file = require('../helpers/formelements/file'), validateAndSend = require('../helpers/formelements/validateAndSend'), validateAndEdit = require('../helpers/formelements/validateAndEdit');
 
 router.get('/', (req, res) => {
 	res.send(`
-		${top('6Cav Server')}
+		${top('Unit Activities Manager')}
 		<div class="card shadow-sm">
 			<div class="card-body p-0">
 				<div class="list-group list-group-flush">
@@ -31,6 +31,7 @@ router.get('/', (req, res) => {
 				</div>
 			</div>
 		</div>
+		${footer}
 		${bottom}
 		${swals}
 		${closing}
@@ -51,6 +52,7 @@ router.get('/records/:staff', (req, res) => {
 			<div class="card-body" id="data-container"></div>
 		</div>
 		<div id="pagination-container" class="d-flex justify-content-center"></div>
+		${footer}
 		${bottom}
 		<script type="text/javascript">
 			const socket = io();
@@ -106,7 +108,7 @@ router.get('/records/:staff', (req, res) => {
 			function template(data) {
 				var html = '<div class="list-group list-group-flush">';
 				data.forEach(d => {
-					html += '<a href="/edit/'+d.data.staff+'/'+d.id+'" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'+d.data.activity+'</h5><small>₱'+moneyfy(d.data.amount)+'</small></div><p class="mb-1">Finish Date: '+(new Date(d.data.finishDate)).toLocaleDateString("en-PH", { day: "2-digit", month: "short", year: "numeric"})+'</p><small>'+d.data.quarter.toUpperCase()+' QUARTER '+d.data.year+'</small></a>';
+					html += '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'+d.data.activity+'</h5><small>₱'+moneyfy(d.data.amount)+'</small></div><p class="sm mb-1">Major Program: '+d.data.mptitle+'</p><p class="sm mb-1">Sub-Program: '+d.data.sptitle+'</p><p class="sm mb-3">Specific: '+d.data.sp_title+'</p><p class="mb-1">Date Conducted: '+(new Date(d.data.date)).toLocaleDateString("en-PH", { day: "2-digit", month: "short", year: "numeric"})+'</p><small>'+d.data.quarter.toUpperCase()+' QUARTER '+d.data.year+'</small><p class="sm mt-2">APB-Based: '+d.data.apbBased.toUpperCase()+'&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;AAR: '+d.data.hasAar.toUpperCase()+'&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;FUR: '+d.data.hasFur.toUpperCase()+'</p></a>';
 				});
 				html += '</div>';
 				return html;
@@ -118,6 +120,11 @@ router.get('/records/:staff', (req, res) => {
 
 router.get('/newactivity/:id', (req, res) => {
 	let staff = req.params.id;
+	let paps = Object.values(hierarchy.all());
+	let mps = [];
+	paps.map(mp => {
+		mps.push(`${mp.id}-${mp.title}`);
+	});
 	res.send(`
 		${top(staff)}
 		<div class="card shadow-sm">
@@ -128,16 +135,157 @@ router.get('/newactivity/:id', (req, res) => {
 			<div class="card-body">
 				${hidden('staff', staff)}
 				${hidden('type', 'activities')}
-				${textInput('activity', '', 'The activity name.')}
-				${datePicker('finishDate', '', 'Finish Date', 'The date that the activity finished.')}
-				${select('year', '', 'Choose what year is this activity', ['2021-2021', '2022-2022'])}
-				${select('quarter', '', 'Choose what quarter is this activity', ['first-First Quarter', 'second-Second Quarter', 'third-Third Quarter', 'fourth-Fourth Quarter'])}
-				${amountInput('amount', '', 'The amount of the activity.')}
+				${select('mp', '', 'PA Major Program (4L)', mps)}
+				<div class="form-group mt-3" id="spContainer" style="display: none;">
+					<select class="form-control" id="sp" name="sp"></select>
+					<small class="form-text text-muted">Sub-Program (5L)</small>
+				</div>
+				<div class="form-group mt-3" id="spContainer_" style="display: none;">
+					<select class="form-control" id="sp_" name="sp_"></select>
+					<small class="form-text text-muted">Suggested Program (6L)</small>
+				</div>
+				<div class="form-group mt-3" id="activityContainer" style="display: none;">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Other</span>
+						</div>
+						<input type="text" class="form-control" id="activity" name="activity" placeholder="Type activity here..." />
+					</div>
+					<small class="form-text text-muted">The title of the activity</small>
+				</div>
+				<div class="form-group mt-3" id="specifyContainer" style="display: none;">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Specify</span>
+						</div>
+						<input type="text" class="form-control" id="specify" name="specify" placeholder="Specify title of activity here..." />
+					</div>
+					<small class="form-text text-muted">Type the specific title of the activity</small>
+				</div>
+				<div class="row mt-3 mb-3">
+					<div class="form-group col-6">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Date</span>
+							</div>
+							<input type="date" class="form-control" id="date" name="date" />
+						</div>
+						<small class="form-text text-muted">Date when the activity was conducted</small>
+					</div>
+					<div class="form-group col-6">
+						<select class="form-control" id="apbBased" name="apbBased">
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+						<small class="form-text text-muted">APB-based activity?</small>
+					</div>
+				</div>
+				<div class="row mt-3 mb-3">
+					<div class="form-group col-6">
+						<select class="form-control" id="year" name="year">
+							<option selected disabled>Choose Year</option>
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+						</select>
+						<small class="form-text text-muted">What year?</small>
+					</div>
+					<div class="form-group col-6">
+						<select class="form-control" id="quarter" name="quarter">
+							<option selected disabled>Choose Quarter</option>
+							<option value="first">First</option>
+							<option value="second">Second</option>
+							<option value="third">Third</option>
+							<option value="fourth">Fourth</option>
+						</select>
+						<small class="form-text text-muted">What quarter?</small>
+					</div>
+				</div>
+				<div class="row mt-3 mb-3">
+					<div class="form-group col-4">
+						<select class="form-control" id="hasAar" name="hasAar">
+						<option value="no">No</option>
+							<option value="yes">Yes</option>
+						</select>
+						<small class="form-text text-muted">Has AAR?</small>
+					</div>
+					<div class="form-group col-4" id="hasFurContainer" style="display: none;">
+						<select class="form-control" id="hasFur" name="hasFur">
+						<option value="no">No</option>
+							<option value="yes">Yes</option>
+						</select>
+						<small class="form-text text-muted">Has FUR?</small>
+					</div>
+					<div class="form-group col-4" id="amountContainer" style="display: none;">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">₱</span>
+							</div>
+							<input type="number" class="form-control" id="amount" name="amount" />
+						</div>
+						<small class="form-text text-muted">Cost on FUR</small>
+					</div>
+				</div>
 				${submitBtn('saveBtn', 'Submit')}
 			</div>
 		</div>
+		${footer}
 		${bottom}
-		${validateAndSend('/newactivity', 'saveBtn', ['staff', 'type', 'activity', 'finishDate', 's-year', 's-quarter', 'amount'], staff)}
+		<script type="text/javascript">
+			$('#mp').on('change', () => {
+				$.ajax({
+					type: 'GET', url: '/mp/'+document.getElementById('mp').value,
+					success: response => {
+						document.getElementById('sp').innerHTML = response;
+						document.getElementById('spContainer').style.display = 'block';
+						document.getElementById('sp_').value = '';
+						document.getElementById('spContainer_').style.display = 'none';
+					}
+				});
+			});
+			$('#sp').on('change', () => {
+				$.ajax({
+					type: 'GET', url: '/sp/'+document.getElementById('mp').value+'/'+document.getElementById('sp').value,
+					success: response => {
+						document.getElementById('sp_').innerHTML = response;
+						document.getElementById('spContainer_').style.display = 'block';
+					}
+				});
+			});
+			$('#sp_').on('change', () => {
+				if(document.getElementById('sp_').value == 'other') {
+					document.getElementById('activityContainer').style.display = 'block';
+					document.getElementById('specify').value = '';
+					document.getElementById('specifyContainer').style.display = 'none';
+				} else {
+					document.getElementById('activity').value = '';
+					document.getElementById('activityContainer').style.display = 'none';
+					document.getElementById('specifyContainer').style.display = 'block';
+				}
+			});
+			$('#hasAar').on('change', () => {
+				if(document.getElementById('hasAar').value == 'yes') {
+					document.getElementById('hasFurContainer').style.display = 'block';
+				} else {
+					document.getElementById('hasFur').value = 'no';
+					document.getElementById('hasFurContainer').style.display = 'none';
+				}
+			});
+			$('#hasFur').on('change', () => {
+				if(document.getElementById('hasFur').value == 'yes') {
+					document.getElementById('amountContainer').style.display = 'block';
+				} else {
+					document.getElementById('amount').value = '0';
+					document.getElementById('amountContainer').style.display = 'none';
+				}
+			});
+			$('#activity').on('change', () => {
+				document.getElementById('specify').value = document.getElementById('activity').value;
+			});
+			$('#specify').on('change', () => {
+				document.getElementById('activity').value = document.getElementById('specify').value;
+			});
+		</script>
+		${validateAndSend('/newactivity', 'saveBtn', ['staff', 'type', 's-mp', 's-sp', 's-sp_', 'activity', 'date', 's-year', 's-quarter', 'amount'], staff)}
 		${swals}
 		${closing}
 	`);
@@ -188,124 +336,28 @@ router.post('/editactivity', (req, res) => {
 	res.status(200).send('Item successfully edited!');
 });
 
-router.get('/paps', (req, res) => {
-	let paps = Object.values(hierarchy.all());
-	let mps = [];
-	paps.map(mp => {
-		mps.push(`${mp.id}-${mp.title}`);
-	});
-	res.send(`
-		${top('PAPS')}
-		<div class="card shadow-sm">
-			<div class="card-header bg-success text-light d-flex w-100 justify-content-between">
-				<span>PAPS</span>
-			</div>
-			<div class="card-body" id="cardbody">
-				${select('mp', '', 'PA Major Programs', mps)}
-			</div>
-		</div>
-		${bottom}
-		<script type="text/javascript">
-			var firstChoiceMp = true;
-			var firstChoiceSp = true;
-			$('#mp').on('change', () => {
-				$.ajax({
-					type: 'GET', url: '/mp/'+document.getElementById('mp').value,
-					success: response => {
-						if(firstChoiceMp) {
-							let holder1 = document.createElement('div');
-							holder1.setAttribute('class', 'mt-3 mb-3');
-							holder1.setAttribute('id', 'holder1');
-							holder1.innerHTML = response;
-							document.getElementById('cardbody').appendChild(holder1);
-							firstChoiceMp = false;
-						} else {
-							document.getElementById('cardbody').removeChild(document.getElementById('holder1'));
-							let holder1 = document.createElement('div');
-							holder1.setAttribute('class', 'mt-3 mb-3');
-							holder1.setAttribute('id', 'holder1');
-							holder1.innerHTML = response;
-							document.getElementById('cardbody').appendChild(holder1);
-							firstChoiceMp = false;
-						}
-					}
-				});
-			});
-			$('#sp').on('change', () => {
-				$.ajax({
-					type: 'GET', url: '/sp/'+document.getElementById('mp').value+'/'+document.getElementById('sp').value,
-					success: response => {
-						console.log(response);
-						if(firstChoiceSp) {
-							let holder2 = document.createElement('div');
-							holder2.setAttribute('class', 'mt-3 mb-3');
-							holder2.setAttribute('id', 'holder2');
-							holder2.innerHTML = response;
-							document.getElementById('cardbody').appendChild(holder2);
-							firstChoiceSp = false;
-						} else {
-							document.getElementById('cardbody').removeChild(document.getElementById('holder2'));
-							let holder2 = document.createElement('div');
-							holder2.setAttribute('class', 'mt-3 mb-3');
-							holder2.setAttribute('id', 'holder2');
-							holder2.innerHTML = response;
-							document.getElementById('cardbody').appendChild(holder2);
-							firstChoiceSp = false;
-						}
-					}
-				});
-			});
-		</script>
-		${swals}
-		${closing}
-	`);
-});
-
 router.get('/mp/:id', (req, res) => {
 	let mp = Object.values(hierarchy.get(req.params.id).types);
-	let sps = [];
+	let sps = '';
 	mp.map(sp => {
-		sps.push(sp.id+'-'+sp.title);
+		sps += `<option value="${sp.id}">${sp.title}</option>`;
 	});
 	res.send(`
-		${select('sp', '', 'Sub Program', sps)}
+		<option selected disabled>Choose Sub-Program (5L)</option>
+		${sps}
 	`);
 });
 
 router.get('/sp/:mp/:id', (req, res) => {
 	let mp = Object.values(hierarchy.get(req.params.mp).types[req.params.id].types);
-	let sps = [];
+	let sps = '';
 	mp.map(sp => {
-		sps.push(sp.id+'-'+sp.title);
+		sps += `<option value="${sp.id}">${sp.title}</option>`;
 	});
 	res.send(`
-		${select('sp_', '', 'Suggested Programs', sps)}
-		<script type="text/javascript">
-			$('#sp').on('change', () => {
-				$.ajax({
-					type: 'GET', url: '/sp/'+document.getElementById('mp').value+'/'+document.getElementById('sp').value,
-					success: response => {
-						console.log(response);
-						if(firstChoiceSp) {
-							let holder2 = document.createElement('div');
-							holder2.setAttribute('class', 'mt-3 mb-3');
-							holder2.setAttribute('id', 'holder2');
-							holder2.innerHTML = response;
-							document.getElementById('cardbody').appendChild(holder2);
-							firstChoiceSp = false;
-						} else {
-							document.getElementById('cardbody').removeChild(document.getElementById('holder2'));
-							let holder2 = document.createElement('div');
-							holder2.setAttribute('class', 'mt-3 mb-3');
-							holder2.setAttribute('id', 'holder2');
-							holder2.innerHTML = response;
-							document.getElementById('cardbody').appendChild(holder2);
-							firstChoiceSp = false;
-						}
-					}
-				});
-			});
-		</script>
+		<option selected disabled>Choose Suggested Program (6L)</option>
+		${sps}
+		<option value="other">Other</option>
 	`);
 });
 
@@ -314,17 +366,25 @@ function randomString() {
 	return `${Math.random().toString(36).replace(/[^a-z]+/g, '')}${Math.random().toString(36).replace(/[^a-z]+/g, '')}`.substring(0,6);
 }
 function addToDb(id, addTo, data) {
+	let h = hierarchy.all();
 	let node = db.get(id);
 	let storage = {};
 	let newEntry = randomString();
 	let dataHolder = {};
 	if(node != null) {
 		data.createdAt = (new Date).getTime();
+		data.mptitle = h[data.mp].title;
+		data.sptitle = h[data.mp].types[data.sp].title;
+		if(data.sp_ == 'other') {
+			data.sp_title = 'Other';
+		} else {
+			data.sp_title = h[data.mp].types[data.sp].types[data.sp_].title;
+		}
 		storage = node.storage;
 		// For New Activities
 		if(storage[addTo] == null || storage[addTo] == undefined) {
 			dataHolder[newEntry]['id'] = newEntry;
-			data.unix = (new Date(data.finishDate)).getTime();
+			data.unix = (new Date(data.date)).getTime();
 			dataHolder[newEntry]['data'] = data;
 			storage[addTo] = dataHolder;
 			db.put({ id: id, storage: storage });
@@ -334,7 +394,7 @@ function addToDb(id, addTo, data) {
 			dataHolder = storage[addTo];
 			dataHolder[newEntry] = {};
 			dataHolder[newEntry]['id'] = newEntry;
-			data.unix = (new Date(data.finishDate)).getTime();
+			data.unix = (new Date(data.date)).getTime();
 			dataHolder[newEntry]['data'] = data;
 			storage[addTo] = dataHolder;
 			db.put({ id: id, storage: storage });

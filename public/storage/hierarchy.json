@@ -475,6 +475,30 @@
             "id": "SP27_1",
             "title": "R&M of Mil Veh - Armor Vehicles"
           },
+          "SP27_2": {
+            "id": "SP27_2",
+            "title": "R&M of Mil Veh - 10 Ton Truck and above"
+          },
+          "SP27_3": {
+            "id": "SP27_3",
+            "title": " R&M of Mil Veh - 8 Ton Truck"
+          },
+          "SP27_4": {
+            "id": "SP27_4",
+            "title": " R&M of Mil Veh - 5 Ton Truck"
+          },
+          "SP27_5": {
+            "id": "SP27_5",
+            "title": " R&M of Mil Veh - 2 1/2 Ton Truck"
+          },
+          "SP27_6": {
+            "id": "SP27_6",
+            "title": " R&M of Mil Veh - 1 1/4 Ton Truck"
+          },
+          "SP27_7": {
+            "id": "SP27_7",
+            "title": " R&M of Mil Veh - 1/4 Ton Truck"
+          },
           "SP27_8": {
             "id": "SP27_8",
             "title": "R&M of SPV - Van"
@@ -1419,7 +1443,7 @@
       },
       "SP64": {
         "id": "SP64",
-        "title": "Support to Opeational Enhancement of Units",
+        "title": "Support to Operational Enhancement of Units",
         "types": {
           "SP64_1": {
             "id": "SP64_1",
