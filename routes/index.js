@@ -3,6 +3,7 @@ var router = express.Router();
 
 // Helpers
 var db = require('../storage');
+var hierarchy = require('../hierarchy');
 var top = require('../helpers/top');
 var bottom = require('../helpers/bottom');
 var clientSocket = require('../helpers/clientSocket');
@@ -185,6 +186,127 @@ router.post('/editactivity', (req, res) => {
 	storage.activities = activities;
 	db.put({id: req.body.staff, storage: storage});
 	res.status(200).send('Item successfully edited!');
+});
+
+router.get('/paps', (req, res) => {
+	let paps = Object.values(hierarchy.all());
+	let mps = [];
+	paps.map(mp => {
+		mps.push(`${mp.id}-${mp.title}`);
+	});
+	res.send(`
+		${top('PAPS')}
+		<div class="card shadow-sm">
+			<div class="card-header bg-success text-light d-flex w-100 justify-content-between">
+				<span>PAPS</span>
+			</div>
+			<div class="card-body" id="cardbody">
+				${select('mp', '', 'PA Major Programs', mps)}
+			</div>
+		</div>
+		${bottom}
+		<script type="text/javascript">
+			var firstChoiceMp = true;
+			var firstChoiceSp = true;
+			$('#mp').on('change', () => {
+				$.ajax({
+					type: 'GET', url: '/mp/'+document.getElementById('mp').value,
+					success: response => {
+						if(firstChoiceMp) {
+							let holder1 = document.createElement('div');
+							holder1.setAttribute('class', 'mt-3 mb-3');
+							holder1.setAttribute('id', 'holder1');
+							holder1.innerHTML = response;
+							document.getElementById('cardbody').appendChild(holder1);
+							firstChoiceMp = false;
+						} else {
+							document.getElementById('cardbody').removeChild(document.getElementById('holder1'));
+							let holder1 = document.createElement('div');
+							holder1.setAttribute('class', 'mt-3 mb-3');
+							holder1.setAttribute('id', 'holder1');
+							holder1.innerHTML = response;
+							document.getElementById('cardbody').appendChild(holder1);
+							firstChoiceMp = false;
+						}
+					}
+				});
+			});
+			$('#sp').on('change', () => {
+				$.ajax({
+					type: 'GET', url: '/sp/'+document.getElementById('mp').value+'/'+document.getElementById('sp').value,
+					success: response => {
+						console.log(response);
+						if(firstChoiceSp) {
+							let holder2 = document.createElement('div');
+							holder2.setAttribute('class', 'mt-3 mb-3');
+							holder2.setAttribute('id', 'holder2');
+							holder2.innerHTML = response;
+							document.getElementById('cardbody').appendChild(holder2);
+							firstChoiceSp = false;
+						} else {
+							document.getElementById('cardbody').removeChild(document.getElementById('holder2'));
+							let holder2 = document.createElement('div');
+							holder2.setAttribute('class', 'mt-3 mb-3');
+							holder2.setAttribute('id', 'holder2');
+							holder2.innerHTML = response;
+							document.getElementById('cardbody').appendChild(holder2);
+							firstChoiceSp = false;
+						}
+					}
+				});
+			});
+		</script>
+		${swals}
+		${closing}
+	`);
+});
+
+router.get('/mp/:id', (req, res) => {
+	let mp = Object.values(hierarchy.get(req.params.id).types);
+	let sps = [];
+	mp.map(sp => {
+		sps.push(sp.id+'-'+sp.title);
+	});
+	res.send(`
+		${select('sp', '', 'Sub Program', sps)}
+	`);
+});
+
+router.get('/sp/:mp/:id', (req, res) => {
+	let mp = Object.values(hierarchy.get(req.params.mp).types[req.params.id].types);
+	let sps = [];
+	mp.map(sp => {
+		sps.push(sp.id+'-'+sp.title);
+	});
+	res.send(`
+		${select('sp_', '', 'Suggested Programs', sps)}
+		<script type="text/javascript">
+			$('#sp').on('change', () => {
+				$.ajax({
+					type: 'GET', url: '/sp/'+document.getElementById('mp').value+'/'+document.getElementById('sp').value,
+					success: response => {
+						console.log(response);
+						if(firstChoiceSp) {
+							let holder2 = document.createElement('div');
+							holder2.setAttribute('class', 'mt-3 mb-3');
+							holder2.setAttribute('id', 'holder2');
+							holder2.innerHTML = response;
+							document.getElementById('cardbody').appendChild(holder2);
+							firstChoiceSp = false;
+						} else {
+							document.getElementById('cardbody').removeChild(document.getElementById('holder2'));
+							let holder2 = document.createElement('div');
+							holder2.setAttribute('class', 'mt-3 mb-3');
+							holder2.setAttribute('id', 'holder2');
+							holder2.innerHTML = response;
+							document.getElementById('cardbody').appendChild(holder2);
+							firstChoiceSp = false;
+						}
+					}
+				});
+			});
+		</script>
+	`);
 });
 
 // FUNCTIONS

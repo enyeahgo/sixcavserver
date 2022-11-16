@@ -23,7 +23,7 @@ let select = (id, initVal, instruction, options) => {
     return `
       <div class="form-group">
         <select class="form-control" id="${id}" name="${id}">
-          <option disabled>Choose ${titlize(id)}</option>
+          <option disabled>Choose ${instruction}</option>
           ${parsedOptions}
         </select>
         <small class="form-text text-muted">${instruction}</small>
@@ -33,7 +33,7 @@ let select = (id, initVal, instruction, options) => {
     return `
       <div class="form-group">
         <select class="form-control" id="${id}" name="${id}">
-          <option selected disabled>Choose ${titlize(id)}</option>
+          <option selected disabled>Choose ${instruction}</option>
           ${parsedOptions}
         </select>
         <small class="form-text text-muted">${instruction}</small>
