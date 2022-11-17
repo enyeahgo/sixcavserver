@@ -16,7 +16,7 @@ return `<!DOCTYPE html>
 
   <!-- Navigation Bar -->
   <nav class="navbar navbar-dark bg-primary position-relative d-flex justify-content-center p-2">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand headerTitle" href="/">
       ${title.toUpperCase()}
     </a>
   </nav>

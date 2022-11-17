@@ -16,3 +16,13 @@
 .sm {
 	font-size: 12px;
 }
+
+.headerTitle {
+	font-family: Impact, sans-serif;
+	font-size: xx-large ;
+}
+
+.menuTitle {
+	font-family: Verdana, sans-serif;
+	font-size: larger;
+}

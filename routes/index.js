@@ -15,10 +15,10 @@ var textInput = require('../helpers/formelements/textInput'), select = require('
 
 router.get('/', (req, res) => {
 	res.send(`
-		${top('Unit Activities Manager')}
+		${top('Unit Activity Manager')}
 		<div class="card shadow-sm">
 			<div class="card-body p-0">
-				<div class="list-group list-group-flush">
+				<div class="list-group list-group-flush menuTitle">
 					<a href="/records/co" class="list-group-item list-group-item-action flex-column align-items-start">CO</a>
 					<a href="/records/exo" class="list-group-item list-group-item-action flex-column align-items-start">EXO</a>
 					<a href="/records/fsgt" class="list-group-item list-group-item-action flex-column align-items-start">FSgt</a>
@@ -156,7 +156,7 @@ router.get('/newactivity/:id', (req, res) => {
 		<div class="card shadow-sm">
 			<div class="card-header bg-success text-light d-flex w-100 justify-content-between">
 				<span>Add New Record</span>
-				<span><a href="/records/${staff}" class="btn btn-sm btn-secondary outlined"><small>View Records</small></a></span>
+				<span><a href="/records/${staff}" class="btn btn-sm btn-secondary outlined"><small>Back</small></a></span>
 			</div>
 			<div class="card-body">
 				${hidden('staff', staff)}
