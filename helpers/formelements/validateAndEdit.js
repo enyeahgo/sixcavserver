@@ -19,6 +19,10 @@ let validateAndSend = (url, btnid, inputArr, staff) => {
         if(${inputs}) {
           axios.post('${url}', {
             ${postBody}
+            "apbBased": document.getElementById('apbBased').value,
+            "hasAar": document.getElementById('hasAar').value,
+            "hasFur": document.getElementById('hasFur').value,
+            "amount": document.getElementById('amount').value,
           }).then(response => {
             toast(response.data, 'success');
           });
