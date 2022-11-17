@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 // Storage
-var db = require('../storage');
+var codb = require('../co'), exodb = require('../exo'), fsgtdb = require('../fsgt'), persdb = require('../pers'), inteldb = require('../intel'), opsdb = require('../ops'), logdb = require('../log'), sigdb = require('../sig'), cmodb = require('../cmo'), trgdb = require('../trg'), findb = require('../fin'), atrdb = require('../atr'); 
 var hierarchy = require('../hierarchy');
 // Helpers
 var top = require('../helpers/top');
@@ -19,6 +19,9 @@ router.get('/', (req, res) => {
 		<div class="card shadow-sm">
 			<div class="card-body p-0">
 				<div class="list-group list-group-flush">
+					<a href="/records/co" class="list-group-item list-group-item-action flex-column align-items-start">CO</a>
+					<a href="/records/exo" class="list-group-item list-group-item-action flex-column align-items-start">EXO</a>
+					<a href="/records/fsgt" class="list-group-item list-group-item-action flex-column align-items-start">FSgt</a>
 					<a href="/records/personnel" class="list-group-item list-group-item-action flex-column align-items-start">Personnel</a>
 					<a href="/records/intelligence" class="list-group-item list-group-item-action flex-column align-items-start">Intelligence</a>
 					<a href="/records/operations" class="list-group-item list-group-item-action flex-column align-items-start">Operations</a>
@@ -31,7 +34,7 @@ router.get('/', (req, res) => {
 				</div>
 			</div>
 		</div>
-		${footer}
+		${footer('block')}
 		${bottom}
 		${swals}
 		${closing}
@@ -39,9 +42,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/records/:staff', (req, res) => {
+	let sid = staffid(req.params.staff);
 	res.send(`
 		${top(req.params.staff+' Activities')}
-		<div class="card shadow-sm mb-3">
+		<div class="card shadow-sm mb-3" id="recordscard" style="display: none;">
 			<div class="card-header bg-success text-light d-flex w-100 justify-content-between">
 				<span>Records</span>
 				<span>
@@ -49,20 +53,31 @@ router.get('/records/:staff', (req, res) => {
 				  <a href="/newactivity/${req.params.staff}" class="btn btn-sm btn-primary outlined"><small>Add Record</small></a>
 				</span>
 			</div>
-			<div class="card-body" id="data-container"></div>
+			<div class="card-body p-0" id="data-container"></div>
 		</div>
 		<div id="pagination-container" class="d-flex justify-content-center"></div>
-		${footer}
+		${footer('none')}
 		${bottom}
 		<script type="text/javascript">
 			const socket = io();
 			var pc = $('#pagination-container');
 
-			window.addEventListener('load', () => {
+			window.addEventListener('DOMContentLoaded', () => {
 				if(document.referrer.split('/')[3] != 'edit') {
 					localStorage.setItem('currentPage', 1);
 				}
-				updateData(true);
+				if(document.location.pathname.split('/').pop() == 'co') {
+					Swal.fire({
+						title: 'Enter PIN',
+						input: 'password'
+					}).then(result => {
+						toast('Unauthorized', 'error');
+					});
+				} else {
+					document.getElementById('recordscard').style.display = 'block';
+					document.getElementById('footer').style.display = 'block';
+					updateData(true);
+				}
 			});
 
 			socket.on('dbchanged', staff => {
@@ -77,15 +92,17 @@ router.get('/records/:staff', (req, res) => {
 					className: 'paginationjs-theme-blue',
 					dataSource: function(done) {
 						$.ajax({
-							type: 'GET', url: '/storage/serverstorage.json',
+							type: 'GET', url: '/storage/${sid}.json',
 							success: response => {
-								console.log(response['${req.params.staff}']['storage']['activities']);
-								done(Object.values(response['${req.params.staff}']['storage']['activities']).sort((a, b) => parseInt(a.data.unix)-parseInt(b.data.unix)));
+								console.log(response['activities']);
+								done(Object.values(response['activities']['data']).sort((a, b) => parseInt(a.data.unix)-parseInt(b.data.unix)));
 							}
 						});
 					},
 					pageSize: 3,
 					pageNumber: localStorage.getItem('currentPage'),
+					autoHidePrevious: true,
+    			autoHideNext: true,
 					callback: (data, pagination) => {
 						var html = template(data);
 						$('#data-container').html(html);
@@ -114,6 +131,7 @@ router.get('/records/:staff', (req, res) => {
 				return html;
 			}
 		</script>
+		${swals}
 		${closing}
 	`);
 });
@@ -228,7 +246,7 @@ router.get('/newactivity/:id', (req, res) => {
 				${submitBtn('saveBtn', 'Submit')}
 			</div>
 		</div>
-		${footer}
+		${footer('block')}
 		${bottom}
 		<script type="text/javascript">
 			$('#mp').on('change', () => {
@@ -365,44 +383,75 @@ router.get('/sp/:mp/:id', (req, res) => {
 function randomString() {
 	return `${Math.random().toString(36).replace(/[^a-z]+/g, '')}${Math.random().toString(36).replace(/[^a-z]+/g, '')}`.substring(0,6);
 }
-function addToDb(id, addTo, data) {
+function addToDb(staff, addTo, newdata) {
+	// Init
 	let h = hierarchy.all();
-	let node = db.get(id);
-	let storage = {};
+	let node = getDb(staff, addTo);
 	let newEntry = randomString();
-	let dataHolder = {};
-	if(node != null) {
-		data.createdAt = (new Date).getTime();
-		data.mptitle = h[data.mp].title;
-		data.sptitle = h[data.mp].types[data.sp].title;
-		if(data.sp_ == 'other') {
-			data.sp_title = 'Other';
-		} else {
-			data.sp_title = h[data.mp].types[data.sp].types[data.sp_].title;
-		}
-		storage = node.storage;
-		// For New Activities
-		if(storage[addTo] == null || storage[addTo] == undefined) {
-			dataHolder[newEntry]['id'] = newEntry;
-			data.unix = (new Date(data.date)).getTime();
-			dataHolder[newEntry]['data'] = data;
-			storage[addTo] = dataHolder;
-			db.put({ id: id, storage: storage });
-			return { status: 'success', message: `Database entry successfully recorded with id: ${newEntry}` };
-		// Already have Activities on storage
-		} else {
-			dataHolder = storage[addTo];
-			dataHolder[newEntry] = {};
-			dataHolder[newEntry]['id'] = newEntry;
-			data.unix = (new Date(data.date)).getTime();
-			dataHolder[newEntry]['data'] = data;
-			storage[addTo] = dataHolder;
-			db.put({ id: id, storage: storage });
-			return { status: 'success', message: `Database entry successfully recorded with id: ${newEntry}` };
-		}
+	// Finalize data
+	newdata.createdAt = (new Date).getTime();
+	newdata.unix = (new Date(newdata.date)).getTime();
+	newdata.mptitle = h[newdata.mp].title;
+	newdata.sptitle = h[newdata.mp].types[newdata.sp].title;
+	if(newdata.sp_ == 'other') {
+		newdata.sp_title = 'Other';
 	} else {
-		db.put({ id: id, storage: {} });
-		addToDb(id, addTo, data);
+		newdata.sp_title = h[newdata.mp].types[newdata.sp].types[newdata.sp_].title;
+	}
+	// Insert newdata to existing data
+	node.data[newEntry] = {};
+	node.data[newEntry].id = newEntry;
+	node.data[newEntry].data = newdata;
+	// Save
+	putDb(staff, addTo, node.data);
+	return { status: 'success', message: `Database entry successfully recorded with id: ${newEntry}` };
+}
+function staffid(staff) {
+	switch(staff) {
+		case 'co': { return 'co'; break; }
+		case 'exo': { return 'exo'; break; }
+		case 'fsgt': { return 'fsgt'; break; }
+		case 'personnel': { return 'pers'; break; }
+		case 'intelligence': { return 'intel'; break; }
+		case 'operations': { return 'ops'; break; }
+		case 'logistics': { return 'log'; break; }
+		case 'signal': { return 'sig'; break; }
+		case 'cmo': { return 'cmo'; break; }
+		case 'training': { return 'trg'; break; }
+		case 'finance': { return 'fin'; break; }
+		case 'atr': { return 'atr'; break; }
+	}
+}
+function getDb(staff, addTo) {
+	switch(staff) {
+		case 'co': { return codb.get(addTo); break; }
+		case 'exo': { return exodb.get(addTo); break; }
+		case 'fsgt': { return fsgtdb.get(addTo); break; }
+		case 'personnel': { return persdb.get(addTo); break; }
+		case 'intelligence': { return inteldb.get(addTo); break; }
+		case 'operations': { return opsdb.get(addTo); break; }
+		case 'logistics': { return logdb.get(addTo); break; }
+		case 'signal': { return sigdb.get(addTo); break; }
+		case 'cmo': { return cmodb.get(addTo); break; }
+		case 'training': { return trgdb.get(addTo); break; }
+		case 'finance': { return findb.get(addTo); break; }
+		case 'atr': { return atrdb.get(addTo); break; }
+	}
+}
+function putDb(staff, addTo, data) {
+	switch(staff) {
+		case 'co': { codb.put({ id: addTo, data: data }); break; }
+		case 'exo': { exodb.put({ id: addTo, data: data }); break; }
+		case 'fsgt': { fsgtdb.put({ id: addTo, data: data }); break; }
+		case 'personnel': { persdb.put({ id: addTo, data: data }); break; }
+		case 'intelligence': { inteldb.put({ id: addTo, data: data }); break; }
+		case 'operations': { opsdb.put({ id: addTo, data: data }); break; }
+		case 'logistics': { logdb.put({ id: addTo, data: data }); break; }
+		case 'signal': { sigdb.put({ id: addTo, data: data }); break; }
+		case 'cmo': { cmodb.put({ id: addTo, data: data }); break; }
+		case 'training': { trgdb.put({ id: addTo, data: data }); break; }
+		case 'finance': { findb.put({ id: addTo, data: data }); break; }
+		case 'atr': { atrdb.put({ id: addTo, data: data }); break; }
 	}
 }
 
