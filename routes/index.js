@@ -100,7 +100,7 @@ router.get('/records/:staff', (req, res) => {
 							type: 'GET', url: '/storage/${sid}.json',
 							success: response => {
 								if(response != null || response != undefined || response != {}) {
-									done(Object.values(response).sort((a, b) => parseInt(a.data.unix)-parseInt(b.data.unix)));
+									done(Object.values(response).sort((a, b) => parseInt(b.data.unix)-parseInt(a.data.unix)));
 								} else {
 									done([]);
 								}
@@ -193,6 +193,7 @@ router.get('/newactivity/:id', (req, res) => {
 							<option selected disabled>Choose Year</option>
 							<option value="2021">2021</option>
 							<option value="2022">2022</option>
+							<option value="2022">2023</option>
 						</select>
 						<small class="form-text text-muted">What year?</small>
 					</div>
